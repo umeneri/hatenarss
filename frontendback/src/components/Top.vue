@@ -52,7 +52,8 @@ export default {
     },
 
     async getRss () {
-      const url = 'http://b.hatena.ne.jp/hotentry.rss'
+      // const url = 'http://b.hatena.ne.jp/hotentry.rss'
+      const url = '/api/hello'
       const result = await axios.get(url)
       console.log(result)
       return result.data
