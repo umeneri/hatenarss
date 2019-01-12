@@ -44,7 +44,7 @@
     <appender-ref ref="ACCESS_FILE" />
   </logger>
 
-  <logger name="play" level="DEBUG" />
+  <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
 
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->

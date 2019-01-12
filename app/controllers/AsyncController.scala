@@ -1,8 +1,8 @@
 package controllers
 
 import javax.inject._
-
 import akka.actor.ActorSystem
+import play.api.libs.ws.{WSClient, WSRequest, WSResponse}
 import play.api.mvc._
 
 import scala.concurrent.duration._
@@ -24,7 +24,7 @@ import scala.concurrent.{ExecutionContext, Future, Promise}
  * a blocking API.
  */
 @Singleton
-class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem)(implicit exec: ExecutionContext) extends AbstractController(cc) {
+class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem, ws: WSClient)(implicit exec: ExecutionContext) extends AbstractController(cc) {
 
   /**
    * Creates an Action that returns a plain text message after a delay
@@ -34,7 +34,7 @@ class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSyst
    * will be called when the application receives a `GET` request with
    * a path of `/message`.
    */
-  def message = Action.async {
+  def message: Action[AnyContent] = Action.async {
     getFutureMessage(1.second).map { msg => Ok(msg) }
   }
 
@@ -46,4 +46,13 @@ class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSyst
     promise.future
   }
 
+  def hatena: Action[AnyContent] = Action.async {
+    val url = "http://b.hatena.ne.jp/hotentry.rss"
+    val request: WSRequest = ws.url(url)
+    val futureResponse: Future[WSResponse] = request.get()
+
+    futureResponse.map { response =>
+      Ok(response.body)
+    }
+  }
 }

@@ -1,7 +1,6 @@
 package controllers
 
 import javax.inject._
-
 import play.api.mvc._
 
 /**
@@ -25,5 +24,4 @@ class HomeController @Inject()(cc: ControllerComponents) (implicit assetsFinder:
   def hello = Action {
     Ok("hello")
   }
-
 }
