@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="main-content columns is-fullheight">
+      <side-menu/>
+      <div class="container column is-10">
+        <header-nav/>
+        <router-view/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SideMenu from '@/components/SideMenu'
+import HeaderNav from '@/components/HeaderNav'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HeaderNav,
+    SideMenu
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+$menu-item-active-background-color: hsl(171, 100%, 41%);
+$menu-item-color: hsl(0, 0%, 100%);
+
+@import '~bulma';
+$fa-font-path: '~font-awesome/fonts/';
+@import '~font-awesome/scss/font-awesome';
+
 </style>
