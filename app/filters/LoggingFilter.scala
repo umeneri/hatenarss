@@ -24,3 +24,4 @@ class LoggingFilter @Inject() (implicit val mat: Materializer, ec: ExecutionCont
     }
   }
 }
+

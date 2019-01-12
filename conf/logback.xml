@@ -46,7 +46,6 @@
 
   <logger name="play" level="DEBUG" />
   <logger name="application" level="DEBUG" />
-  <logger name="akka" level="INFO" />
 
   <!-- Off these ones as they are annoying, and anyway we manage configuration ourselves -->
   <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
@@ -55,7 +54,7 @@
   <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
 
 
-  <root level="DEBUG">
+  <root level="WARN">
     <appender-ref ref="ASYNCFILE" />
     <appender-ref ref="ASYNCSTDOUT" />
   </root>
