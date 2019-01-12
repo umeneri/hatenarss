@@ -24,7 +24,11 @@ import scala.concurrent.{ExecutionContext, Future, Promise}
  * a blocking API.
  */
 @Singleton
-class AsyncController @Inject()(cc: ControllerComponents, actorSystem: ActorSystem, ws: WSClient)(implicit exec: ExecutionContext) extends AbstractController(cc) {
+class AsyncController @Inject()(cc: ControllerComponents,
+                                actorSystem: ActorSystem,
+                                ws: WSClient)
+                               (implicit exec: ExecutionContext)
+  extends AbstractController(cc) {
 
   /**
    * Creates an Action that returns a plain text message after a delay
