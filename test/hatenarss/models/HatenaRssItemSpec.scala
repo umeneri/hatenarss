@@ -32,7 +32,7 @@ class HatenaRssItemSpec extends WordSpec with Matchers {
 
       val json = parse(jsonString)
 
-      val rssItem = HatenaRssItem.parse(json)
+      val rssItem = HatenaRssItem.fromJson(json)
     }
   }
 
@@ -60,7 +60,7 @@ class HatenaRssItemSpec extends WordSpec with Matchers {
 
     val json = parse(jsonString)
 
-    val rssItem = HatenaRssItem.parse(json)
+    val rssItem = HatenaRssItem.fromJson(json)
 
     implicit val formats = DefaultFormats + new HatenaRssItemSerializer()
     val resultString = write(rssItem)

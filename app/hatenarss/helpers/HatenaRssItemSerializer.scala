@@ -13,9 +13,9 @@ class HatenaRssItemSerializer extends CustomSerializer[HatenaRssItem](format => 
     implicit val fmt = format
 
     val title = (jObject \ "title").extract[String]
-    val description = (jObject \ "description").extract[String]
+    val description = (jObject \ "description").extractOrElse[String]("")
     val link = (jObject \ "link").extract[String]
-    val imageurl = (jObject \ "hatena:imageurl").extract[String]
+    val imageurl = (jObject \ "hatena:imageurl").extractOrElse[String]("")
     val bookmarkcount = (jObject \ "hatena:bookmarkcount").extract[String].toInt
     val datetimeStr = (jObject \ "dc:date").extract[String]
     val datetime = HatenaRssItemSerializer.parseToZonedDateTime(datetimeStr)

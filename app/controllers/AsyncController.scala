@@ -53,7 +53,7 @@ class AsyncController @Inject()(cc: ControllerComponents,
 
   //  [はてなブックマークフィード仕様 - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/bookmark/misc/feed)
   def hatena: Action[AnyContent] = Action.async {
-    val url = "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&url=https%3A%2F%2Ftwitter.com&mode=rss"
+    val url = "http://b.hatena.ne.jp/hotentry.rss"
     val jsonFuture = HatenaRssService(ws).getHatenaRssItemJsonString(url)
     jsonFuture.map(Ok(_))
   }

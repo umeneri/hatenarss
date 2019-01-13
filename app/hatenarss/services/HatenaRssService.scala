@@ -13,7 +13,7 @@ case class HatenaRssService(ws: WSClient) {
     itemsFuture.map { items =>
       items.map { item =>
         println(item)
-        HatenaRssItem.parse(item)
+        HatenaRssItem.fromJson(item)
       }
     }
   }

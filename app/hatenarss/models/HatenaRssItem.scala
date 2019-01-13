@@ -17,7 +17,7 @@ case class HatenaRssItem(title: String,
 object HatenaRssItem {
   implicit val formats = DefaultFormats + new HatenaRssItemSerializer()
 
-  def parse(json: JValue): HatenaRssItem = {
+  def fromJson(json: JValue): HatenaRssItem = {
 
     json.extract[HatenaRssItem]
   }
