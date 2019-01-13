@@ -29,7 +29,7 @@ class RssItemSpec extends WordSpec {
 
       val json = parse(jsonString)
 
-      val rssItem = RssItem.parse(json)
+      val rssItem = HatenaRssItem.parse(json)
     }
   }
 }

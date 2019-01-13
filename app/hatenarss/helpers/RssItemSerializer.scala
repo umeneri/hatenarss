@@ -3,12 +3,12 @@ package hatenarss.helpers
 import java.time.format.DateTimeFormatter
 import java.time.{Instant, ZoneId, ZonedDateTime}
 
-import hatenarss.models.RssItem
+import hatenarss.models.HatenaRssItem
 import org.json4s.CustomSerializer
 import org.json4s.JsonAST.JObject
 import org.json4s.JsonDSL._
 
-class RssItemSerializer extends CustomSerializer[RssItem](format => ( {
+class RssItemSerializer extends CustomSerializer[HatenaRssItem](format => ( {
   case jObject: JObject =>
     implicit val fmt = format
 
@@ -20,9 +20,9 @@ class RssItemSerializer extends CustomSerializer[RssItem](format => ( {
     val datetimeStr = (jObject \ "dc:date").extract[String]
     val datetime = RssItemSerializer.parseToZonedDateTime(datetimeStr)
 
-    RssItem(title, description, link, imageurl, bookmarkcount, datetime)
+    HatenaRssItem(title, description, link, imageurl, bookmarkcount, datetime)
 }, {
-  case rssItem: RssItem => ("title" -> rssItem.title) ~
+  case rssItem: HatenaRssItem => ("title" -> rssItem.title) ~
     ("description" -> rssItem.description) ~
     ("link" -> rssItem.link) ~
     ("hatena:imageurl" -> rssItem.imageurl) ~
