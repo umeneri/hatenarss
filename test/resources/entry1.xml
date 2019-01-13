@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://purl.org/rss/1.0/"
+        xmlns:admin="http://webns.net/mvcb/"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:hatena="http://www.hatena.ne.jp/info/xmlns#"
+        xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+        xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+>
+
+    <channel rdf:about="http://b.hatena.ne.jp/entrylist?url=https%3A%2F%2Ftwitter.com%2F&#x26;sort=hot&#x26;threshold=3">
+        <title>&#x300E;twitter.com&#x300F; &#x306E;&#x65B0;&#x7740;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC; - &#x306F;&#x3066;&#x306A;&#x30D6;&#x30C3;&#x30AF;&#x30DE;&#x30FC;&#x30AF;</title>
+        <link>http://b.hatena.ne.jp/entrylist?url=https%3A%2F%2Ftwitter.com%2F&#x26;sort=hot&#x26;threshold=3</link>
+        <description>&#x300E;twitter.com&#x300F; &#x306E;&#x65B0;&#x7740;&#x30A8;&#x30F3;&#x30C8;&#x30EA;&#x30FC; - &#x306F;&#x3066;&#x306A;&#x30D6;&#x30C3;&#x30AF;&#x30DE;&#x30FC;&#x30AF;</description>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="https://twitter.com/mazy_3anime/status/1083159787674587136" />
+                <rdf:li rdf:resource="https://twitter.com/w_romanken/status/1083335450956185601" />
+            </rdf:Seq>
+        </items>
+    </channel>
+    <item rdf:about="https://twitter.com/mazy_3anime/status/1083159787674587136">
+        <title>&#x30A2;&#x30CB;&#x30E1;&#x7248;&#x307E;&#x3058;&#x3055;&#x3093;</title>
+        <link>https://twitter.com/mazy_3anime/status/1083159787674587136</link>
+        <description>Bar</description>
+        <dc:date>2019-01-12T03:15:00Z</dc:date>
+        <dc:subject>&#x4E16;&#x306E;&#x4E2D;</dc:subject>
+        <dc:subject>&#x30A2;&#x30CB;&#x30E1;</dc:subject>
+        <taxo:topics>
+            <rdf:Bag>
+                <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%82%A2%E3%83%8B%E3%83%A1" />
+            </rdf:Bag>
+        </taxo:topics>
+        <content:encoded>content1</content:encoded>
+        <hatena:imageurl>https://pbs.twimg.com/profile_images/987614437887524865/u1WDMgrd.jpg</hatena:imageurl>
+        <hatena:bookmarkcount>8</hatena:bookmarkcount>
+    </item>
+    <item rdf:about="https://twitter.com/mazy_3anime/status/1083159787674587136">
+        <title>2&#x30A2;&#x30CB;&#x30E1;&#x7248;&#x307E;&#x3058;&#x3055;&#x3093;</title>
+        <link>https://twitter.com/mazy_3anime/status/1083159787674587136</link>
+        <description>Bar</description>
+        <dc:date>2019-01-12T03:15:00Z</dc:date>
+        <dc:subject>&#x4E16;&#x306E;&#x4E2D;</dc:subject>
+        <dc:subject>&#x30A2;&#x30CB;&#x30E1;</dc:subject>
+        <taxo:topics>
+            <rdf:Bag>
+                <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%82%A2%E3%83%8B%E3%83%A1" />
+            </rdf:Bag>
+        </taxo:topics>
+        <content:encoded>content1</content:encoded>
+        <hatena:imageurl>https://pbs.twimg.com/profile_images/987614437887524865/u1WDMgrd.jpg</hatena:imageurl>
+        <hatena:bookmarkcount>8</hatena:bookmarkcount>
+    </item>
+</rdf:RDF>
