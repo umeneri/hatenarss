@@ -2,8 +2,9 @@ package hatenarss.models
 
 import java.time.ZonedDateTime
 
-import hatenarss.helpers.RssItemSerializer
+import hatenarss.helpers.HatenaRssItemSerializer
 import org.json4s.{DefaultFormats, JValue}
+import org.json4s.native.Serialization.write
 
 case class HatenaRssItem(title: String,
                          description: String,
@@ -14,9 +15,14 @@ case class HatenaRssItem(title: String,
                   )
 
 object HatenaRssItem {
+  implicit val formats = DefaultFormats + new HatenaRssItemSerializer()
+
   def parse(json: JValue): HatenaRssItem = {
-    implicit val formats = DefaultFormats + new RssItemSerializer()
 
     json.extract[HatenaRssItem]
+  }
+
+  def renderJson(items: Seq[HatenaRssItem]): String = {
+    write(items)
   }
 }

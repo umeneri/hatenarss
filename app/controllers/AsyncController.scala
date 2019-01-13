@@ -2,6 +2,7 @@ package controllers
 
 import javax.inject._
 import akka.actor.ActorSystem
+import hatenarss.services.HatenaRssService
 import play.api.libs.ws.{WSClient, WSRequest, WSResponse}
 import play.api.mvc._
 
@@ -53,13 +54,7 @@ class AsyncController @Inject()(cc: ControllerComponents,
   //  [はてなブックマークフィード仕様 - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/bookmark/misc/feed)
   def hatena: Action[AnyContent] = Action.async {
     val url = "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&url=https%3A%2F%2Ftwitter.com&mode=rss"
-    val request: WSRequest = ws.url(url)
-    val futureResponse: Future[WSResponse] = request.get()
-
-    futureResponse.map { response =>
-      val xml = response.readableAsXml
-      xml
-      Ok(response.body)
-    }
+    val jsonFuture = HatenaRssService(ws).getHatenaRssItemJsonString(url)
+    jsonFuture.map(Ok(_))
   }
 }

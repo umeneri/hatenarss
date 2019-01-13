@@ -26,8 +26,6 @@ object RssClient extends JsonMethods {
 
   def getItems(xml: Elem): Seq[JValue] = {
     val xml2: NodeSeq = xml \ "item"
-    val xmlItems: Seq[JValue] = xml2.map(toJson(_))
-
-    xmlItems
+    xml2.map(toJson(_) \ "item")
   }
 }
