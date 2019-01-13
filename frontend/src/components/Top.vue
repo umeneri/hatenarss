@@ -1,45 +1,36 @@
 <template>
   <div class="section">
-    <div class="card">
-      <div class="card-header"><p class="card-header-title">Header</p></div>
-      <div class="card-content"><div class="content">Content</div></div>
-    </div>
-    <br />
+    <div class="container">
+      <div class="columns is-multiline">
 
-    <div class="card is-hidden1">
-      <div class="card-header"><p class="card-header-title">Header</p></div>
-      <div class="card-content"><div class="content">Content</div></div>
-    </div>
-    <br />
+        <div class="column is-4" v-for="item in items" :key="item.link">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img :src="item.imageurl" alt="image">
+              </figure>
+            </div>
 
-    <div class="card is-hidden1">
-      <div class="card-header"><p class="card-header-title">Header</p></div>
-      <div class="card-content"><div class="content">Content</div></div>
-    </div>
-    <br />
+            <div class="card-header"><p class="card-header-title">{{ item.title }}</p></div>
 
-    <div class="card is-hidden1">
-      <div class="card-header"><p class="card-header-title">Header</p></div>
-      <div class="card-content"><div class="content">Content</div></div>
-    </div>
-    <br />
+            <div class="card-content">
+              <div class="content">
+                {{ item.description }}
+              </div>
+              <br>
+              <time :datetime="item.datetime">{{ item.datetime }}</time>
+            </div>
+          </div>
+        </div>
 
-    <div class="card is-hidden1">
-      <div class="card-header"><p class="card-header-title">Header</p></div>
-      <div class="card-content"><div class="content">Content</div></div>
+      </div>
     </div>
-    <br />
-
-    <div class="card is-hidden1">
-      <div class="card-header"><p class="card-header-title">Header</p></div>
-      <div class="card-content"><div class="content">Content</div></div>
-    </div>
-    <br />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import hatenaHotentryJson from '../data/hatena-hotentry'
 
 export default {
   name: 'top',
@@ -55,8 +46,13 @@ export default {
       // const url = 'http://b.hatena.ne.jp/hotentry.rss'
       const url = '/api/hello'
       const result = await axios.get(url)
-      console.log(result)
+      // console.log(result)
       return result.data
+    },
+  },
+  computed: {
+    items: () => {
+      return hatenaHotentryJson
     }
   }
 }
