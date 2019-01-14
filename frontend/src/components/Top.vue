@@ -11,14 +11,23 @@
               </figure>
             </div>
 
-            <div class="card-header"><p class="card-header-title">{{ item.title }}</p></div>
+            <div class="card-header">
+              <p class="card-header-title">{{ item.title }}</p>
+            </div>
 
             <div class="card-content">
               <div class="content">
                 {{ item.description }}
               </div>
               <br>
-              <time :datetime="item.datetime">{{ item.datetime }}</time>
+              <div class="level">
+                <div class="level-left">
+                  <time :datetime="item.datetime">{{ item.datetime }}</time>
+                </div>
+                <div class="level-right button is-primary is-rounded">
+                  <p>{{ item.bookmarkcount }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -35,7 +44,7 @@ import hatenaHotentryJson from '../data/hatena-hotentry'
 export default {
   name: 'top',
   mounted: function () {
-    this.setRss()
+    // this.setRss()
   },
   methods: {
     async setRss () {
