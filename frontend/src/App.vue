@@ -11,12 +11,10 @@
 
 <script>
 import SideMenu from '@/components/SideMenu'
-import HeaderNav from '@/components/HeaderNav'
 
 export default {
   name: 'app',
   components: {
-    HeaderNav,
     SideMenu
   }
 }
