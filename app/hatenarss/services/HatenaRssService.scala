@@ -1,12 +1,18 @@
 package hatenarss.services
 
 import hatenarss.models.HatenaRssItem
+import javax.inject.Inject
 import play.api.libs.ws.WSClient
 
-import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
-case class HatenaRssService(ws: WSClient) {
+class HatenaRssService @Inject()(ws: WSClient) {
+  def getHatenaRssItemJsonString(url: String): Future[String] = {
+    val itemsFuture = getHatenaRssItems(url)
+    itemsFuture.map(HatenaRssItem.renderJson)
+  }
+
   def getHatenaRssItems(url: String): Future[Seq[HatenaRssItem]] = {
     val itemsFuture = RssClient(ws).read(url)
 
@@ -16,10 +22,5 @@ case class HatenaRssService(ws: WSClient) {
         HatenaRssItem.fromJson(item)
       }
     }
-  }
-
-  def getHatenaRssItemJsonString(url: String): Future[String] = {
-    val itemsFuture = getHatenaRssItems(url)
-    itemsFuture.map(HatenaRssItem.renderJson)
   }
 }

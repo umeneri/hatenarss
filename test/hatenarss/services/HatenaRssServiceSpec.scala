@@ -12,7 +12,7 @@ class HatenaRssServiceSpec extends WordSpec with Matchers {
     "get hatena rss items from url" in {
       val url = "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&url=https%3A%2F%2Ftwitter.com&mode=rss"
       WsTestClient.withClient { client =>
-        val items: Future[Seq[HatenaRssItem]] = HatenaRssService(client).getHatenaRssItems(url)
+        val items: Future[Seq[HatenaRssItem]] = new HatenaRssService(client).getHatenaRssItems(url)
         val result: Seq[HatenaRssItem] = Await.result(items, 10.seconds)
         result.length should be > 0
       }
