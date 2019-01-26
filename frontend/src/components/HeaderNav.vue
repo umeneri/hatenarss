@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
           @click="toggleMenu" :class="{'is-active': isMenuActive}">

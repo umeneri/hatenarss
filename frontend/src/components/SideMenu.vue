@@ -3,14 +3,14 @@
     <p class="menu-label is-hidden-touch has-text-white">Navigation</p>
     <ul class="menu-list">
       <li>
-        <a href="#" :class="{ 'is-active': activeNum == 0 }" @click="changeActiveLink(0)">
-          <span class="icon"><i class="fa fa-home"></i></span> Home
-        </a>
+        <router-link to="/" :class="{ 'is-active': activeNum == 0 }" @click="changeActiveLink(0)">
+          <span class="icon"><i class="fa fa-home"></i></span>Home
+        </router-link>
       </li>
       <li>
-        <a href="#" :class="{ 'is-active': activeNum == 1 }" @click="changeActiveLink(1)">
-          <span class="icon"><i class="fa fa-book"></i></span> Other
-        </a>
+        <router-link to="/About" :class="{ 'is-active': activeNum == 1 }" @click="changeActiveLink(1)">
+          <span class="icon"><i class="fa fa-book"></i></span> About
+        </router-link>
         <ul>
           <li>
             <a href="#" :class="{ 'is-active': activeNum == 10 }" @click="changeActiveLink(10)">
@@ -26,7 +26,7 @@
       </li>
       <li>
         <a href="#" :class="{ 'is-active': activeNum == 13 }" @click="changeActiveLink(13)">
-          <span class="icon"><i class="fa fa-info"></i></span> About
+          <span class="icon"><i class="fa fa-info"></i></span> Test
         </a>
       </li>
     </ul>

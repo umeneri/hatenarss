@@ -3,7 +3,6 @@
     <div class="main-content columns is-fullheight">
       <side-menu/>
       <div class="container column is-10">
-        <header-nav/>
         <router-view/>
       </div>
     </div>
