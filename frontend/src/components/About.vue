@@ -2,7 +2,7 @@
   <section class="hero is-fullheight-with-navbar">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1>メイン コンテンツ</h1>
+        <h1>Author: Masato Koishi</h1>
       </div>
     </div>
   </section>
