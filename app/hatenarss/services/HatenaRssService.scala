@@ -1,7 +1,9 @@
 package hatenarss.services
 
+import hatenarss.models.HatenaRssItem
+
 import scala.concurrent.Future
 
 trait HatenaRssService  {
-  def getHatenaRssItemJsonString(url: String): Future[String]
+  def getHatenaRssItems(keyword: String): Future[Seq[HatenaRssItem]]
 }

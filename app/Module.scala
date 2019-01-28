@@ -1,6 +1,7 @@
 import com.google.inject.AbstractModule
 import java.time.Clock
 
+import hatenarss.helpers.{Json4sSerializer, JsonSerializer}
 import hatenarss.services.{HatenaRssService, HatenaRssServiceImpl}
 import services.{ApplicationTimer, AtomicCounter, Counter}
 
@@ -25,6 +26,7 @@ class Module extends AbstractModule {
     // Set AtomicCounter as the implementation for Counter.
     bind(classOf[Counter]).to(classOf[AtomicCounter])
     bind(classOf[HatenaRssService]).to(classOf[HatenaRssServiceImpl])
+    bind(classOf[JsonSerializer]).to(classOf[Json4sSerializer])
   }
 
 }

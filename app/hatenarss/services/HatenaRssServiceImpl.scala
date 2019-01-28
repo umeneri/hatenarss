@@ -8,12 +8,9 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 class HatenaRssServiceImpl @Inject()(ws: WSClient) extends HatenaRssService {
-  def getHatenaRssItemJsonString(url: String): Future[String] = {
-    val itemsFuture = getHatenaRssItems(url)
-    itemsFuture.map(HatenaRssItem.renderJson)
-  }
+  def getHatenaRssItems(keyword: String): Future[Seq[HatenaRssItem]] = {
+    val url = s"http://b.hatena.ne.jp/$keyword.rss"
 
-  def getHatenaRssItems(url: String): Future[Seq[HatenaRssItem]] = {
     val itemsFuture = RssClient(ws).read(url)
 
     itemsFuture.map { items =>
