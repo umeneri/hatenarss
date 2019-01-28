@@ -7,7 +7,7 @@ import play.api.libs.ws.WSClient
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
-class HatenaRssServiceImpl @Inject()(ws: WSClient) extends HatenaRssService {
+class HatenaRssServiceWS @Inject()(ws: WSClient) extends HatenaRssService {
   def getHatenaRssItems(keyword: String): Future[Seq[HatenaRssItem]] = {
     val url = s"http://b.hatena.ne.jp/$keyword.rss"
 
