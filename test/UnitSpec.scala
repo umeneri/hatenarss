@@ -1,6 +1,5 @@
 import akka.actor.ActorSystem
 import controllers.{AsyncController, CountController}
-import hatenarss.services.HatenaRssService
 import org.scalatestplus.play._
 import play.api.test.Helpers._
 import play.api.test.{FakeRequest, WsTestClient}
@@ -32,8 +31,7 @@ class UnitSpec extends PlaySpec {
       try {
         implicit val ec = actorSystem.dispatcher
         WsTestClient.withClient { client =>
-          val hatenaRssService = new HatenaRssService(client)
-          val controller = new AsyncController(stubControllerComponents(), actorSystem, hatenaRssService)
+          val controller = new AsyncController(stubControllerComponents(), actorSystem)
           val resultFuture = controller.message(FakeRequest())
           contentAsString(resultFuture) must be("Hi!")
         }
@@ -42,7 +40,5 @@ class UnitSpec extends PlaySpec {
         actorSystem.terminate()
       }
     }
-
   }
-
 }
