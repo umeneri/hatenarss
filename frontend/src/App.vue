@@ -3,7 +3,6 @@
     <div class="main-content columns is-fullheight">
       <side-menu/>
       <div class="container column is-10">
-        <header-nav/>
         <router-view/>
       </div>
     </div>
@@ -12,12 +11,10 @@
 
 <script>
 import SideMenu from '@/components/SideMenu'
-import HeaderNav from '@/components/HeaderNav'
 
 export default {
   name: 'app',
   components: {
-    HeaderNav,
     SideMenu
   }
 }
