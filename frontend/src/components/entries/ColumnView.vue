@@ -1,29 +1,21 @@
 <template>
   <div class="column is-6 box">
     <article class="media" v-for="item in items" :key="item.link">
-        <div class="media-left">
-          <!-- <p class="image is-14x14">                  -->
-          <!--   <img src="http://placehold.jp/14x14.png"> -->
-          <!-- </p>                                        -->
-        </div>
-
         <div class="media-content">
           <div class="content">
             <p>
-              <a :href="item.link" target="_blank" class="has-text-dark">{{ item.title }}</a>
+              <a :href="item.link" target="_blank" class="has-text-dark"><strong>{{ item.title }}</strong></a>
             </p>
           </div>
           <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item">
+            <a class="level-left" :href="createHatenaButton(item.link)" target="_blank">
+              <div class="level-item has-text-danger">
                 <span class="icon is-small"><i class="fa fa-bookmark-o"></i></span>
-              </a>
-              <a class="level-item">
+              </div>
+              <div class="level-item has-text-danger">
                 <p>{{ item.bookmarkcount  }} User</p>
-              </a>
-            </div>
-            <div class="level-right">
-            </div>
+              </div>
+            </a>
           </nav>
         </div>
 
@@ -37,6 +29,7 @@
 
     </article>
   </div>
+
 </template>
 
 <script>
@@ -45,6 +38,15 @@ export default {
   data () {
     return {
       defaultImageUrl: 'http://placehold.jp/128x128.png?text=hatenaRss'
+    }
+  },
+  methods: {
+    createHatenaButton (url) {
+      const target = this.removeLinkProtocol(url)
+      return `http://b.hatena.ne.jp/entry/s/${target}`
+    },
+    removeLinkProtocol (url) {
+      return url.replace(/(http|https):\/\//, "")
     }
   }
 }
