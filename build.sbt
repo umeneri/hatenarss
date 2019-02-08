@@ -20,4 +20,5 @@ libraryDependencies += ws
 libraryDependencies += ehcache
 libraryDependencies += json4sNative
 libraryDependencies += json4sXml
-
+libraryDependencies += "org.seleniumhq.selenium" % "selenium-java" % "2.35.0" % "test"
+libraryDependencies += "software.reinvent" % "headless-chrome" % "0.3.1"
