@@ -20,5 +20,7 @@ export default new Router({
       path: '/register',
       component: Register
     }
-  ]
+  ],
+  mode: 'history'
+
 })
