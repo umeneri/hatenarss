@@ -51,9 +51,8 @@ export default {
 </script>
 
 
-<style scoped>
-.image img {
-  height: 100%;
-  object-fit: cover;
-}
+<style  lang="sass" scoped>
+.image img
+  height: 100%
+  object-fit: cover
 </style>
