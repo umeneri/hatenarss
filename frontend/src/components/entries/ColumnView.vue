@@ -27,11 +27,13 @@
           </nav>
         </div>
 
-        <figure class="media-right">
-          <figure class="image is-64x64">
-            <img class="is-clipped" :src="item.imageurl ? item.imageurl : defaultImageUrl " alt="image">
-          </figure>
-        </figure>
+        <div class="media-right">
+          <a :href="item.link" target="_blank">
+            <figure class="image is-64x64">
+              <img class="is-clipped" :src="item.imageurl ? item.imageurl : defaultImageUrl " alt="image">
+            </figure>
+          </a>
+        </div>
 
     </article>
   </div>
