@@ -24,8 +24,8 @@ export default {
 $menu-item-active-background-color: hsl(171, 100%, 41%);
 $menu-item-color: hsl(0, 0%, 100%);
 
-@import '~bulma';
-$fa-font-path: '~font-awesome/fonts/';
-@import '~font-awesome/scss/font-awesome';
+@import '~bulma'
+$fa-font-path: '~font-awesome/fonts/'
+@import '~font-awesome/scss/font-awesome'
 
 </style>

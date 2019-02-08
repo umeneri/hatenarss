@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Entries from '@/components/Entries'
+import EntryView from '@/components/EntryView'
 import About from '@/components/About'
 import Register from '@/components/Register'
 
@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Entries
+      component: EntryView
     },
     {
       path: '/about',
