@@ -11,7 +11,7 @@ import play.api.test.WsTestClient
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
 import scala.io.Source
-import scala.xml.{Elem, Node}
+import scala.xml.Node
 
 class RssClientSpec extends WordSpec with Matchers with ScalaFutures with JsonMethods {
   "hatenarss.services.RssClient" should {
@@ -43,7 +43,6 @@ class RssClientSpec extends WordSpec with Matchers with ScalaFutures with JsonMe
         val result: Seq[Node] = Await.result(xml, 10.seconds)
 
         result.length should be > 0
-        println(result)
       }
     }
   }

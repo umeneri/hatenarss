@@ -34,7 +34,6 @@ class HatenaRssServiceWS @Inject()(ws: WSClient) extends HatenaRssService {
 
     itemsFuture.map { items =>
       items.map { item =>
-        println(item)
         HatenaRssItem.fromXml(item)
       }
     }
