@@ -35,7 +35,7 @@ object HatenaRssItemSerializer {
   private def format(t: ZonedDateTime): String =
     t.format(DateTimeFormatter.ISO_INSTANT)
 
-  private def parseToZonedDateTime(t: String): ZonedDateTime = {
+  def parseToZonedDateTime(t: String): ZonedDateTime = {
     Instant.parse(t).atZone(ZoneId.systemDefault())
   }
 }

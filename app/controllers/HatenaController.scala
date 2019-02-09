@@ -17,8 +17,14 @@ class HatenaController @Inject()(cc: ControllerComponents,
   extends AbstractController(cc) {
 
   //  [はてなブックマークフィード仕様 - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/bookmark/misc/feed)
-  def hatena: Action[AnyContent] = Action.async {
-    val itemsFuture: Future[Seq[HatenaRssItem]] = hatenaRssService.getHatenaRssItems("hotentry")
+  def hatena(keyword: String): Action[AnyContent] = Action.async {
+    val itemsFuture: Future[Seq[HatenaRssItem]] = hatenaRssService.getHatenaRssItems(keyword)
+
+    itemsFuture.map { items => Ok(jsonSerializer.toJson(items)) }
+  }
+
+  def ranking(period: String): Action[AnyContent] = Action.async {
+    val itemsFuture: Future[Seq[HatenaRssItem]] = hatenaRssService.getRankingItems(period)
 
     itemsFuture.map { items => Ok(jsonSerializer.toJson(items)) }
   }

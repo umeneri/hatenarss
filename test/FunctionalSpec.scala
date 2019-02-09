@@ -41,6 +41,12 @@ class FunctionalSpec extends PlaySpec with GuiceOneAppPerSuite {
       contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "1"
       contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "2"
     }
+  }
 
+  "HatenaController.ranking" should {
+
+    "return hatena contents json" in {
+      contentAsString(route(app, FakeRequest(GET, "/ranking")).get).length > 0 mustBe true
+    }
   }
 }
