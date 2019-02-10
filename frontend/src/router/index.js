@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import TabContainer from '@/components/containers/TabContainer'
-import EntryView from '@/components/EntryView'
+import EntryContainer from '@/components/containers/EntryContainer'
 import About from '@/components/About'
 import { RANKING_TYPE } from '@/entities/RankingType'
 
@@ -12,7 +12,7 @@ const childPathes = Object.keys(RANKING_TYPE).map((key) => {
 
   return {
     path: period,
-    component: EntryView,
+    component: EntryContainer,
     props: { period: period }
   }
 })
@@ -21,7 +21,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: EntryView
+      component: EntryContainer
     },
     {
       path: '/ranking',

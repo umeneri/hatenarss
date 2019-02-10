@@ -3,8 +3,6 @@
     <transition>
       <div v-if="isEntriesVisible">
         <column-view :items="items"></column-view>
-        <!-- <card-view :items="items"></card-view> -->
-        <!-- <list-view :items="items"></list-view> -->
       </div>
     </transition>
   </div>
@@ -12,21 +10,16 @@
 
 <script>
 import axios from 'axios'
-// import CardView from './entries/CardView.vue'
-// import ListView from './entries/ListView.vue'
-import ColumnView from './entries/ColumnView.vue'
-import hatenaHotentryJson from '../data/hatena-hotentry'
+import ColumnView from '@/components/entries/ColumnView.vue'
+import hatenaHotentryJson from '@/data/hatena-hotentry'
 
 export default {
   props: {
     period: {
-      type: String,
-      default: 'daily'
+      type: String
     }
   },
   components: {
-    // CardView,
-    // ListView,
     ColumnView
   },
   data () {
@@ -42,13 +35,11 @@ export default {
     async setRss () {
       // this.rssData = await this.getRss()
       this.rssData = await this.getRss()
+      this.isEntriesVisible = true
     },
     async getRss () {
       const url = `/api/ranking?period=${this.period}`
       const result = await axios.get(url)
-
-      this.isEntriesVisible = true
-
       return result.data
     },
   },

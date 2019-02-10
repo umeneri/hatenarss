@@ -25,7 +25,7 @@ export default {
   methods: {
     resolveActiveTabName () {
       // get last word by splitting '/'
-      const tabPath = this.path.replace(/(.*\/)[\/]*/, '')
+      const tabPath = this.path.replace(/(.*\/)[/]*/, '')
 
       this.tabs.forEach(tab => {
         tab.isActive = (tab.path === tabPath);
