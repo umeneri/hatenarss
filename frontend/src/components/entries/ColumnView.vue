@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-6 box">
+  <div class="column is-12 box">
     <article class="media" v-for="item in items" :key="item.link">
         <div class="media-content">
           <div class="content">
@@ -52,8 +52,7 @@ export default {
 }
 </script>
 
-
-<style  lang="sass" scoped>
+<style lang="sass" scoped>
 .image img
   height: 100%
   object-fit: cover

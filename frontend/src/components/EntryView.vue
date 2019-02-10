@@ -1,14 +1,14 @@
 <template>
-  <section class="section">
-    <h1 class="title ">Hotentry</h1>
-    <transition appear>
+  <div>
+    <h1 class="title">Hotentry</h1>
+    <transition>
       <div v-if="isEntriesVisible">
         <column-view :items="items"></column-view>
         <!-- <card-view :items="items"></card-view> -->
         <!-- <list-view :items="items"></list-view> -->
       </div>
     </transition>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -19,6 +19,12 @@ import ColumnView from './entries/ColumnView.vue'
 import hatenaHotentryJson from '../data/hatena-hotentry'
 
 export default {
+  props: {
+    period: {
+      type: String,
+      default: 'daily'
+    }
+  },
   components: {
     // CardView,
     // ListView,
@@ -27,22 +33,23 @@ export default {
   data () {
     return {
       rssData: null,
-      isEntriesVisible: false
+      isEntriesVisible: false,
     }
   },
-  created () {
+  mounted () {
     this.setRss()
   },
   methods: {
     async setRss () {
+      // this.rssData = await this.getRss()
       this.rssData = await this.getRss()
     },
-
     async getRss () {
-      const url = '/api/hatena'
+      const url = `/api/ranking?period=${this.period}`
       const result = await axios.get(url)
+
       this.isEntriesVisible = true
-      // console.log(result)
+
       return result.data
     },
   },

@@ -25,8 +25,8 @@
         </ul>
       </li>
       <li>
-        <a href="#" :class="{ 'is-active': activeNum == 13 }" @click="changeActiveLink(13)">
-          <span class="icon"><i class="fa fa-info"></i></span> Test
+        <a href="/ranking/daily" :class="{ 'is-active': activeNum == 13 }" @click="changeActiveLink(13)">
+          <span class="icon"><i class="fa fa-info"></i></span>Ranking
         </a>
       </li>
     </ul>
