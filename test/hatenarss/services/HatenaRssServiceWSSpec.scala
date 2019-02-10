@@ -19,7 +19,7 @@ class HatenaRssServiceWSSpec extends WordSpec with Matchers {
       val keyword = "hotentry"
 
       WsTestClient.withClient { client =>
-        val items: Future[Seq[HatenaRssItem]] = new HatenaRssServiceWS(client).getHatenaRssItems(keyword)
+        val items: Future[Seq[HatenaRssItem]] = new HatenaRssServiceWS(client).getHotEntryItems(keyword)
         val result: Seq[HatenaRssItem] = Await.result(items, 10.seconds)
         result.length should be > 0
       }

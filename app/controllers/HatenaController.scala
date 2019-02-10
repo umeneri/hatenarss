@@ -16,8 +16,8 @@ class HatenaController @Inject()(cc: ControllerComponents,
   extends AbstractController(cc) {
 
   //  [はてなブックマークフィード仕様 - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/bookmark/misc/feed)
-  def hotentry(keyword: String): Action[AnyContent] = Action.async {
-    val itemsFuture = hatenaRssService.getHatenaRssItems(keyword)
+  def hotentry(category: String): Action[AnyContent] = Action.async {
+    val itemsFuture = hatenaRssService.getHotEntryItems(category)
 
     itemsFuture.map { items => Ok(jsonSerializer.toJson(items)) }
   }

@@ -17,6 +17,12 @@ export default {
           isActive: true
         },
         {
+          name: 'HotEntry',
+          path: '/hotentry/hotentry',
+          icon: 'fire',
+          isActive: false
+        },
+        {
           name: 'About',
           path: '/about',
           icon: 'info',

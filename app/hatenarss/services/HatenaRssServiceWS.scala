@@ -18,6 +18,8 @@ class HatenaRssServiceWS @Inject()(ws: WSClient) extends HatenaRssService {
 
     val url = createRankingUrl(period, baseUrl)
 
+    println(url)
+
     val itemsFuture = RssClient(ws).read(url)
 
     itemsFuture.map { items =>
@@ -27,8 +29,13 @@ class HatenaRssServiceWS @Inject()(ws: WSClient) extends HatenaRssService {
     }
   }
 
-  def getHatenaRssItems(keyword: String): Future[Seq[HatenaRssItem]] = {
-    val url = s"http://b.hatena.ne.jp/$keyword.rss"
+  def getHotEntryItems(category: String): Future[Seq[HatenaRssItem]] = {
+    val url = category match {
+      case "hotentry" => s"http://b.hatena.ne.jp/hotentry.rss"
+      case _ => s"http://b.hatena.ne.jp/hotentry/$category.rss"
+    }
+
+    println(url)
 
     val itemsFuture = RssClient(ws).read(url)
 

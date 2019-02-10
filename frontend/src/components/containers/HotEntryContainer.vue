@@ -15,7 +15,7 @@ import hatenaHotentryJson from '@/data/hatena-hotentry'
 
 export default {
   props: {
-    period: {
+    category: {
       type: String
     }
   },
@@ -38,7 +38,7 @@ export default {
       this.isEntriesVisible = true
     },
     async getRss () {
-      const url = `/api/ranking?period=${this.period}`
+      const url = `/api/hotentry?category=${this.category}`
       const result = await axios.get(url)
       return result.data
     },
