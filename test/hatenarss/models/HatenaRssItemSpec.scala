@@ -6,8 +6,18 @@ import org.json4s.native.Serialization.write
 import org.json4s._
 import org.scalatest.{Matchers, WordSpec}
 
+import scala.xml.XML
+
 class HatenaRssItemSpec extends WordSpec with Matchers {
   "hatenarss.models.HatenaRssItem" should {
+    "create from xml object" in {
+      val url = this.getClass.getClassLoader.getResource("item.xml")
+      val xml = XML.load(url)
+      val rssItem = HatenaRssItem.fromXml(xml)
+      rssItem.title shouldBe "プログラミング言語人気TOP10の簡易解説"
+      rssItem.bookmarkcount shouldBe 4061
+    }
+
     "created from json object" in {
       val jsonString =
         """

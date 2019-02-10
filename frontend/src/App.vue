@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="main-content columns is-fullheight">
-      <side-menu/>
+      <SideMenuContainer/>
       <div class="container column is-10">
         <router-view/>
       </div>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import SideMenu from '@/components/SideMenu'
+import SideMenuContainer from '@/components/containers/SideMenuContainer'
 
 export default {
   name: 'app',
   components: {
-    SideMenu
+    SideMenuContainer
   }
 }
 </script>

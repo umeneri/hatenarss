@@ -7,16 +7,17 @@ import play.api.libs.ws.{WSClient, WSRequest, WSResponse}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.xml.{Elem, NodeSeq}
+import scala.xml.{Elem, Node, NodeSeq}
 
 case class RssClient(ws: WSClient) {
-  def read(url: String): Future[Seq[JValue]] = {
+  def read(url: String): Future[Seq[Node]] = {
     val request: WSRequest = ws.url(url)
     val futureResponse: Future[WSResponse] = request.get()
 
     futureResponse.map { response =>
       val xml = response.xml
-      RssClient.getItems(xml)
+      val xml2: Seq[Node] = (xml \ "item").theSeq
+      xml2
     }
   }
 }

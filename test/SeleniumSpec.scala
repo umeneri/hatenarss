@@ -12,12 +12,10 @@ trait HeadlessChrome extends WebBrowser with Driver {
 }
 
 class SeleniumSpec extends FlatSpec with Matchers with HeadlessChrome {
-  val host = "http://localhost:8080/"
-
   setCaptureDir("./tmp")
 
   "The blog app home page" should "have the correct title" in {
-    go to host
+    go to "http://localhost:8080/"
 
     implicitlyWait(Span(1, Seconds))
     pageTitle should be ("frontend")
@@ -27,11 +25,12 @@ class SeleniumSpec extends FlatSpec with Matchers with HeadlessChrome {
     val element: Option[Element] = find(query = ClassNameQuery("title"))
     element.get.text shouldBe "Hotentry"
 
-    val cardHeaderTitles = findAll(query = ClassNameQuery("card-header-title")).toList
+    val cardHeaderTitles = findAll(query = ClassNameQuery("media-content")).toList
     cardHeaderTitles.size should be > 0
 
-    cardHeaderTitles.head.attribute("href").isDefined shouldBe true
-    
+    val bookmarkButtons = findAll(query = ClassNameQuery("fa-bookmark-o")).toList
+    bookmarkButtons.size should be > 0
+
     quit()
   }
 }

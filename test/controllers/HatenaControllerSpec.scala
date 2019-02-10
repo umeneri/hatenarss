@@ -16,9 +16,8 @@ class HatenaControllerSpec extends PlaySpec {
 
   "HatenaControllerSpec" should {
 
-    "hatena" in {
-      val Some(result) = route(application, FakeRequest(GET, "/hatena"))
-
+    "hotentry" in {
+      val Some(result) = route(application, FakeRequest(GET, "/hotentry"))
 
       status(result) mustBe OK
     }

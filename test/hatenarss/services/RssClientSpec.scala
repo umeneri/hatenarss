@@ -11,6 +11,7 @@ import play.api.test.WsTestClient
 import scala.concurrent.duration._
 import scala.concurrent.{Await, Future}
 import scala.io.Source
+import scala.xml.Node
 
 class RssClientSpec extends WordSpec with Matchers with ScalaFutures with JsonMethods {
   "hatenarss.services.RssClient" should {
@@ -27,7 +28,7 @@ class RssClientSpec extends WordSpec with Matchers with ScalaFutures with JsonMe
       pretty(render(items)) shouldBe expectedJson
     }
 
-    "get feed items from rss xml" in {
+    "get feed items xml from rss xml" in {
       val rssUrl: URL = getClass.getClassLoader.getResource("entry1.xml")
       val xml = scala.xml.XML.loadString(Source.fromURL(rssUrl).mkString)
 
@@ -38,9 +39,10 @@ class RssClientSpec extends WordSpec with Matchers with ScalaFutures with JsonMe
       val url = "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&url=https%3A%2F%2Ftwitter.com&mode=rss"
 
       WsTestClient.withClient { client =>
-        val json: Future[Seq[JValue]] = RssClient(client).read(url)
-        val result: Seq[JValue] = Await.result(json, 10.seconds)
-        println(result)
+        val xml: Future[Seq[Node]] = RssClient(client).read(url)
+        val result: Seq[Node] = Await.result(xml, 10.seconds)
+
+        result.length should be > 0
       }
     }
   }
