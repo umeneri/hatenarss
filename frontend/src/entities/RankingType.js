@@ -8,7 +8,7 @@ export const RANKING_TYPE = {
     name: '週'
   },
   MONTHLY: {
-    period: 'montly',
+    period: 'monthly',
     name: '月'
   },
   ANNUALY: {
