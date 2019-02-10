@@ -3,8 +3,19 @@ import Router from 'vue-router'
 import TabContainer from '@/components/containers/TabContainer'
 import EntryView from '@/components/EntryView'
 import About from '@/components/About'
+import { RANKING_TYPE } from '@/entities/RankingType'
 
 Vue.use(Router)
+
+const childPathes = Object.keys(RANKING_TYPE).map((key) => {
+  const period = RANKING_TYPE[key].period
+
+  return {
+    path: period,
+    component: EntryView,
+    props: { period: period }
+  }
+})
 
 export default new Router({
   routes: [
@@ -15,18 +26,7 @@ export default new Router({
     {
       path: '/ranking',
       component: TabContainer,
-      children: [
-        {
-          path: 'daily',
-          component: EntryView,
-          props: { period: 'daily' }
-        },
-        {
-          path: 'weekly',
-          component: EntryView,
-          props: { period: 'weekly' }
-        }
-      ]
+      children: childPathes
     },
     {
       path: '/about',

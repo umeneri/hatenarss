@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="title">Hotentry</h1>
     <transition>
       <div v-if="isEntriesVisible">
         <column-view :items="items"></column-view>

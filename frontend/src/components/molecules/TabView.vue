@@ -15,8 +15,22 @@
 
 <script>
 export default {
-  props: [ 'tabs' ],
+  props: [ 'tabs', 'path'],
+  created () {
+    this.resolveActiveTabName()
+  },
+  updated () {
+    this.resolveActiveTabName()
+  },
   methods: {
+    resolveActiveTabName () {
+      // get last word by splitting '/'
+      const tabPath = this.path.replace(/(.*\/)[\/]*/, '')
+
+      this.tabs.forEach(tab => {
+        tab.isActive = (tab.path === tabPath);
+      });
+    },
     selectTab (selectedTab) {
       this.tabs.forEach(tab => {
         tab.isActive = (tab.name === selectedTab.name);
