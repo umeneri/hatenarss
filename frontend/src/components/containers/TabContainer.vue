@@ -21,6 +21,21 @@ export default {
           name: '週',
           path: 'weekly',
           isActive: false
+        },
+        {
+          name: '月',
+          path: 'monthly',
+          isActive: false
+        },
+        {
+          name: '年',
+          path: 'annually',
+          isActive: false
+        },
+        {
+          name: '累計',
+          path: 'all',
+          isActive: false
         }
       ]
     }
