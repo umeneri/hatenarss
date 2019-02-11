@@ -14,14 +14,33 @@ import scala.concurrent.duration._
 class HatenaRssServiceWSSpec extends WordSpec with Matchers {
 
   "hatenarss.services.HatenaRssServiceImpl" should {
+    "test" in {
+      val a = Seq(1,2,3,5)
+      println(a.sortWith((a,b) => a > b))
+
+    }
     "get hatena rss items from url" in {
 //      val url = "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&url=https%3A%2F%2Ftwitter.com&mode=rss"
-      val keyword = "hotentry"
+      val category = "hotentry"
 
       WsTestClient.withClient { client =>
-        val items: Future[Seq[HatenaRssItem]] = new HatenaRssServiceWS(client).getHotEntryItems(keyword)
+        val items: Future[Seq[HatenaRssItem]] = new HatenaRssServiceWS(client).getHotEntryItems(category)
         val result: Seq[HatenaRssItem] = Await.result(items, 10.seconds)
         result.length should be > 0
+      }
+    }
+
+    "sort hatena rss items" in {
+      //      val url = "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&url=https%3A%2F%2Ftwitter.com&mode=rss"
+      val category = "hotentry"
+
+      WsTestClient.withClient { client =>
+        val items: Future[Seq[HatenaRssItem]] = new HatenaRssServiceWS(client).getHotEntryItems(category)
+        val result: Seq[HatenaRssItem] = Await.result(items, 10.seconds)
+
+        val bookmarkCounts = result.map(_.bookmarkCount)
+        val isSorted = bookmarkCounts.zip(bookmarkCounts.tail).forall { case (n1, n2) => n1 >= n2 }
+        isSorted shouldBe true
       }
     }
 

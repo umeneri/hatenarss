@@ -42,7 +42,7 @@ class HatenaRssServiceWS @Inject()(ws: WSClient) extends HatenaRssService {
     itemsFuture.map { items =>
       items.map { item =>
         HatenaRssItem.fromXml(item)
-      }
+      }.sortWith((item1, item2) => item1.bookmarkCount > item2.bookmarkCount)
     }
   }
 
