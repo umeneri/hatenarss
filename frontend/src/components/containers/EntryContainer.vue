@@ -18,8 +18,8 @@ export default {
     keyword: {
       type: String
     },
-    generateUrl: {
-      type: String
+    getUrl: {
+      type: Function
     }
   },
   components: {
@@ -36,12 +36,11 @@ export default {
   },
   methods: {
     async setRss () {
-      // this.itemData = await this.getRss()
       this.itemData = await this.getRss()
       this.isEntriesVisible = true
     },
     async getRss () {
-      const url = `${this.generateUrl(this.keyword)}`
+      const url = this.getUrl(this.keyword)
       const result = await axios.get(url)
       return result.data
     },

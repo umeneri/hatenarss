@@ -1,42 +1,42 @@
 export const HOT_ENTRY_TYPE = {
   HOT_ENTRY: {
     name: '総合',
-    category: 'hotentry'
+    path: 'hotentry'
   },
   SOCIAL: {
     name: '社会',
-    category: 'social'
+    path: 'social'
   },
   ECONOMICS: {
     name: '政治と経済',
-    category: 'economics'
+    path: 'economics'
   },
   LIFE: {
     name: '暮らし',
-    category: 'life'
+    path: 'life'
   },
   KNOWLEDGE: {
     name: '学び',
-    category: 'knowledge'
+    path: 'knowledge'
   },
   IT: {
     name: 'テクノロジー',
-    category: 'it'
+    path: 'it'
   },
   ENTERTAINMENT: {
     name: 'エンタメ',
-    category: 'entertainment'
+    path: 'entertainment'
   },
   GAME: {
     name: 'アニメとゲーム',
-    category: 'game'
+    path: 'game'
   },
   FUN: {
     name: 'おもしろ',
-    category: 'fun'
+    path: 'fun'
   },
   VIDEO: {
     name: '動画',
-    category: 'video'
+    path: 'video'
   }
 }
