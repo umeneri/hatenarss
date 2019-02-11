@@ -1,7 +1,5 @@
 <template>
-  <section class="section">
-    <tab-view :tabs="tabs" :path="$route.path"></tab-view>
-  </section>
+  <tab-view :tabs="tabs" :path="$route.path"></tab-view>
 </template>
 
 <script>

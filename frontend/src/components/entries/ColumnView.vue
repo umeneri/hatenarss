@@ -4,11 +4,12 @@
         <div class="media-content">
           <div class="content">
             <p>
+              <span><img :src="getFaviconUrl(item.link)" alt="favicon" class="favicon"/></span>
               <a :href="item.link" target="_blank" class="has-text-dark"><strong>{{ item.title }}</strong></a>
             </p>
           </div>
           <nav class="level is-mobile">
-            <a class="level-left" :href="createHatenaButton(item.link)" target="_blank">
+            <a class="level-left" :href="getHatenaButton(item.link)" target="_blank">
               <div class="level-item has-text-danger">
                 <span class="icon is-small"><i class="fa fa-bookmark-o"></i></span>
               </div>
@@ -16,6 +17,9 @@
                 <p>{{ item.bookmarkcount  }} User</p>
               </div>
             </a>
+            <div class="level-right">
+              <span class="has-text-grey is-size-8">{{ getFormatedDate(item.datetime) }}</span>
+            </div>
           </nav>
         </div>
 
@@ -41,12 +45,20 @@ export default {
     }
   },
   methods: {
-    createHatenaButton (url) {
+    getHatenaButton (url) {
       const target = this.removeLinkProtocol(url)
       return `http://b.hatena.ne.jp/entry/s/${target}`
     },
     removeLinkProtocol (url) {
       return url.replace(/(http|https):\/\//, "")
+    },
+    getFaviconUrl (url) {
+      const base = "https://www.google.com/s2/favicons"
+      const domain = url.match(/https?:\/\/(.+)\//)[1]
+      return `${base}?domain=${domain}`
+    },
+    getFormatedDate (date) {
+      return date.replace(/T.+/, "")
     }
   }
 }
@@ -56,4 +68,8 @@ export default {
 .image img
   height: 100%
   object-fit: cover
+
+.favicon
+  vertical-align: text-top
+  padding-right: 4px
 </style>

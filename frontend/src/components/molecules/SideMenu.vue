@@ -1,5 +1,5 @@
 <template>
-  <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile has-background-dark">
+  <aside class="column is-2 is-narrow-mobile section is-hidden-mobile has-background-dark side-height">
     <p class="menu-label has-text-white">Navigation</p>
 
     <ul class="menu-list">
@@ -28,3 +28,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.side-height
+  min-height: 2640px
+</style>

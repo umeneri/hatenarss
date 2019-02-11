@@ -2,7 +2,7 @@
   <div id="app">
     <div class="main-content columns is-fullheight">
       <SideMenuContainer/>
-      <div class="container column is-10">
+      <div class="column is-10">
         <router-view/>
       </div>
     </div>
@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style lang="sass">
-$menu-item-active-background-color: hsl(171, 100%, 41%);
-$menu-item-color: hsl(0, 0%, 100%);
+$menu-item-active-background-color: hsl(171, 100%, 41%)
+$menu-item-color: hsl(0, 0%, 100%)
 
 @import '~bulma'
 $fa-font-path: '~font-awesome/fonts/'
