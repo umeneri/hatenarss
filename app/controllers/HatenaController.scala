@@ -1,7 +1,7 @@
 package controllers
 
 import hatenarss.helpers.JsonSerializer
-import hatenarss.services.HatenaRssService
+import hatenarss.services.HatenaEntryService
 import javax.inject._
 import play.api.mvc._
 
@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext
 
 @Singleton
 class HatenaController @Inject()(cc: ControllerComponents,
-                                 hatenaRssService: HatenaRssService,
+                                 hatenaRssService: HatenaEntryService,
                                  jsonSerializer: JsonSerializer
                                 )
                                 (implicit exec: ExecutionContext)

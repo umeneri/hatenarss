@@ -1,6 +1,6 @@
 package controllers
 
-import hatenarss.services.{HatenaRssService, HatenaRssServiceWS}
+import hatenarss.services.{HatenaEntryService, HatenaEntryServiceWS}
 import org.scalatestplus.play.PlaySpec
 import play.api.Application
 import play.api.inject.bind
@@ -11,7 +11,7 @@ import play.api.test.Helpers._
 class HatenaControllerSpec extends PlaySpec {
 
   lazy val application: Application = new GuiceApplicationBuilder()
-    .bindings(bind[HatenaRssService].to[HatenaRssServiceWS])
+    .bindings(bind[HatenaEntryService].to[HatenaEntryServiceWS])
     .build()
 
   "HatenaControllerSpec" should {
