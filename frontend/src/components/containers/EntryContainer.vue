@@ -11,11 +11,14 @@
 <script>
 import axios from 'axios'
 import ColumnView from '@/components/entries/ColumnView.vue'
-import hatenaHotentryJson from '@/data/hatena-hotentry'
+// import hatenaHotentryJson from '@/data/hatena-hotentry'
 
 export default {
   props: {
-    period: {
+    keyword: {
+      type: String
+    },
+    generateUrl: {
       type: String
     }
   },
@@ -24,7 +27,7 @@ export default {
   },
   data () {
     return {
-      rssData: null,
+      itemData: null,
       isEntriesVisible: false,
     }
   },
@@ -33,19 +36,19 @@ export default {
   },
   methods: {
     async setRss () {
-      // this.rssData = await this.getRss()
-      this.rssData = await this.getRss()
+      // this.itemData = await this.getRss()
+      this.itemData = await this.getRss()
       this.isEntriesVisible = true
     },
     async getRss () {
-      const url = `/api/ranking?period=${this.period}`
+      const url = `${this.generateUrl(this.keyword)}`
       const result = await axios.get(url)
       return result.data
     },
   },
   computed: {
     items () {
-      return this.rssData
+      return this.itemData
     }
   }
 }
