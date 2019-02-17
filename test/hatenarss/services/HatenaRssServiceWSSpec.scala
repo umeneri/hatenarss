@@ -46,7 +46,7 @@ class HatenaRssServiceWSSpec extends WordSpec with Matchers {
       }
     }
 
-    "pagenate hatena rss ranking items" in {
+    "paginate hatena rss ranking items" in {
       val period: String = "all"
 
       WsTestClient.withClient { client =>
