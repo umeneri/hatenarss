@@ -54,15 +54,15 @@ export default {
       this.isEntriesVisible = true
       this.page += 1
     },
+    async loadNextPage () {
+      await this.setRss()
+    },
     async getRss (keyword, page, getUrl) {
       const url = getUrl(keyword, page)
       console.log(`get Rss url:  keyword: ${keyword}, page: ${page}, url: ${url}`);
 
       const result = await axios.get(url)
       return result.data
-    },
-    async loadNextPage () {
-      await this.setRss()
     }
   },
   computed: {
