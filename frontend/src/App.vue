@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import SideMenuContainer from '@/components/containers/SideMenuContainer'
+import SideMenuContainer from '@/components/organisms/SideMenuContainer'
 
 export default {
   name: 'app',
