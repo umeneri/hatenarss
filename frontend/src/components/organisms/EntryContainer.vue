@@ -1,5 +1,6 @@
 <template>
   <div>
+    <clip-loader :loading="!isEntriesVisible" :color="color" :size="size"></clip-loader>
     <transition>
       <div v-if="isEntriesVisible">
         <column-view :items="items"></column-view>
@@ -12,6 +13,7 @@
 import axios from 'axios'
 import ColumnView from '@/components/entries/ColumnView.vue'
 // import hatenaHotentryJson from '@/data/hatena-hotentry'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
   props: {
@@ -23,7 +25,8 @@ export default {
     }
   },
   components: {
-    ColumnView
+    ColumnView,
+    ClipLoader
   },
   data () {
     return {
@@ -61,4 +64,3 @@ export default {
   opacity: 0
 
 </style>
-

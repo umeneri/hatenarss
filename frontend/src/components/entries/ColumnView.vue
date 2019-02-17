@@ -54,7 +54,9 @@ export default {
     },
     getFaviconUrl (url) {
       const base = "https://www.google.com/s2/favicons"
-      const domain = url.match(/https?:\/\/(.+)\//)[1]
+      const matched = url.match(/https?:\/\/(.+)\//)
+      const domain = matched !== null && matched.length > 0 ? matched[1] : ''
+
       return `${base}?domain=${domain}`
     },
     getFormatedDate (date) {
