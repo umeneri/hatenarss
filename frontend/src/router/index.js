@@ -31,7 +31,7 @@ const hotChildPathes = Object.keys(HOT_ENTRY_TYPE).map((key) => {
     component: EntryContainer,
     props: {
       keyword: category,
-      getUrl: (keyword) => `/api/hotentry?category=${keyword}`
+      getUrl: (keyword, page) => `/api/hotentry?category=${keyword}&page=${page}`
     }
   }
 })
