@@ -5,11 +5,11 @@
       <div v-if="isEntriesVisible">
         <column-view :items="items"></column-view>
         <nav class="nav-bar has-text-centered">
-          <div @click="loadNextPage"
-            class="button is-primary"
-            :class="{ 'is-loading': isLoadingNext }">
-            次のページ
-          </div>
+          <LoadingButton
+            :title="'次のページ'"
+            :loading="false"
+            :onClickCallback="loadNextPage">
+          </LoadingButton>
         </nav>
       </div>
     </transition>
@@ -20,6 +20,7 @@
 import axios from 'axios'
 import ColumnView from '@/components/entries/ColumnView.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import LoadingButton from '@/components/atoms/LoadingButton.vue'
 // import hatenaHotentryJson from '@/data/hatena-hotentry'
 
 export default {
@@ -33,13 +34,13 @@ export default {
   },
   components: {
     ColumnView,
-    ClipLoader
+    ClipLoader,
+    LoadingButton
   },
   data () {
     return {
       itemData: [],
       isEntriesVisible: false,
-      isLoadingNext: false,
       page: 1
     }
   },
@@ -61,9 +62,7 @@ export default {
       return result.data
     },
     async loadNextPage () {
-      this.isLoadingNext = true
       await this.setRss()
-      this.isLoadingNext = false
     }
   },
   computed: {
