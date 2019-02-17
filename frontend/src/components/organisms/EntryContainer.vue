@@ -22,8 +22,8 @@
 
 <script>
 import axios from 'axios'
-import ColumnView from '@/components/entries/ColumnView.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import ColumnView from '@/components/molecules/entries/ColumnView.vue'
 import LoadingButton from '@/components/atoms/LoadingButton.vue'
 // import hatenaHotentryJson from '@/data/hatena-hotentry'
 

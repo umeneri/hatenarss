@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import TabContainer from '@/components/organisms/TabContainer'
 import EntryContainer from '@/components/organisms/EntryContainer'
-import About from '@/components/About'
+import About from '@/components/organisms/About'
 import { RANKING_TYPE } from '@/entities/RankingType'
 import { HOT_ENTRY_TYPE } from '@/entities/HotEntryType'
 

@@ -1,15 +1,13 @@
 <template>
-  <SideMenu :menus="menus"/>
+  <HeaderNav :menus="menus"/>
 </template>
 
 <script>
-import SideMenu from '@/components/molecules/SideMenu'
+import HeaderNav from '@/components/molecules/HeaderNav'
 import { MENU_TYPE } from '@/entities/MenuType'
 
 export default {
-  components: {
-    SideMenu
-  },
+  components: { HeaderNav },
   props: {
     menus: {
       type: Array,
@@ -18,4 +16,3 @@ export default {
   }
 }
 </script>
-
