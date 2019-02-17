@@ -6,10 +6,14 @@
         <ColumnView :items="items"></ColumnView>
         <nav class="nav-bar has-text-centered">
           <LoadingButton
+            v-if="!isEndPage"
             :title="'次のページ'"
             :loading="false"
             :onClickCallback="loadNextPage">
           </LoadingButton>
+          <div v-else>
+            最後のページです
+          </div>
         </nav>
       </div>
     </transition>
@@ -41,7 +45,8 @@ export default {
     return {
       itemData: [],
       isEntriesVisible: false,
-      page: 1
+      page: 1,
+      isEndPage: false,
     }
   },
   mounted () {
@@ -50,6 +55,12 @@ export default {
   methods: {
     async setRss () {
       const rssData = await this.getRss(this.keyword, this.page, this.getUrl)
+
+      if (rssData.length <= 0) {
+        this.isEndPage = true
+        return
+      }
+
       this.itemData = this.itemData.concat(rssData)
       this.isEntriesVisible = true
       this.page += 1
