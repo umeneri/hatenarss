@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import {} from '@/../node_modules/twitter-relative-time-js/twitter.relative.time.min.js'
+
 export default {
   props: [ 'items' ],
   data () {
@@ -60,7 +62,7 @@ export default {
       return `${base}?domain=${domain}`
     },
     getFormatedDate (date) {
-      return date.replace(/T.+/, "")
+      return (new Date(date)).toTwitterRelativeTime('ja')
     }
   }
 }

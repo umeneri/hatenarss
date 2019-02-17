@@ -12,6 +12,7 @@
     "bulma": "^0.7.2",
     "font-awesome": "^4.7.0",
     "sass-loader": "^7.1.0",
+    "twitter-relative-time-js": "https://github.com/dforest/twitter-relative-time-js.git",
     "vue": "^2.5.21",
     "vue-router": "^3.0.2",
     "vue-spinner": "^1.0.3"
