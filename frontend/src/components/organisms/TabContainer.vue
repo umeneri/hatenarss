@@ -1,5 +1,5 @@
 <template>
-  <tab-view :tabs="tabs" :path="$route.path"></tab-view>
+  <TabView :tabs="tabs" :path="$route.path"></TabView>
 </template>
 
 <script>

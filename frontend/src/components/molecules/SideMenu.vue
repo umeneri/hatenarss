@@ -4,9 +4,9 @@
 
     <ul class="menu-list">
       <li v-for="menu in menus" :class="{ 'is-active': menu.isActive }" :key="menu.name" @click="selectMenu(menu)">
-        <router-link :to="menu.path">
+        <RouterLink :to="menu.path">
           <span class="icon"><i :class="iconClasses(menu)"></i></span>{{ menu.name }}
-        </router-link>
+        </RouterLink>
       </li>
     </ul>
 

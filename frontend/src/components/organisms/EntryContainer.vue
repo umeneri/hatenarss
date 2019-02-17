@@ -1,9 +1,9 @@
 <template>
   <div>
-    <clip-loader :loading="!isEntriesVisible"></clip-loader>
+    <ClipLoader :loading="!isEntriesVisible"></ClipLoader>
     <transition>
       <div v-if="isEntriesVisible">
-        <column-view :items="items"></column-view>
+        <ColumnView :items="items"></ColumnView>
         <nav class="nav-bar has-text-centered">
           <LoadingButton
             :title="'次のページ'"
