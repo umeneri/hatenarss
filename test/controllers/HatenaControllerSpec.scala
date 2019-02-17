@@ -20,6 +20,14 @@ class HatenaControllerSpec extends PlaySpec {
       val Some(result) = route(application, FakeRequest(GET, "/hotentry"))
 
       status(result) mustBe OK
+      contentAsString(result).length must be > 0
+    }
+
+    "ranking" in {
+      val Some(result) = route(application, FakeRequest(GET, "/ranking"))
+
+      status(result) mustBe OK
+      contentAsString(result).length must be > 0
     }
   }
 }
