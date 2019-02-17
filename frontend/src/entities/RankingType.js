@@ -1,22 +1,22 @@
 export const RANKING_TYPE = {
   DAILY: {
-    period: 'daily',
-    name: '日'
+    name: '日',
+    path: 'daily'
   },
   WEEKLY: {
-    period: 'weekly',
-    name: '週'
+    name: '週',
+    path: 'weekly'
   },
   MONTHLY: {
-    period: 'montly',
-    name: '月'
+    name: '月',
+    path: 'monthly'
   },
   ANNUALY: {
-    period: 'annually',
-    name: '年'
+    name: '年',
+    path: 'annually'
   },
   ALL: {
-    period: 'all',
-    name: '累計'
+    name: '累計',
+    path: 'all'
   }
 }

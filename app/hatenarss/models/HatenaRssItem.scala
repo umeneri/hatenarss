@@ -11,8 +11,8 @@ import scala.xml.Node
 case class HatenaRssItem(title: String,
                          description: String,
                          link: String,
-                         imageurl: String,
-                         bookmarkcount: Int,
+                         imageUrl: String,
+                         bookmarkCount: Int,
                          datetime: ZonedDateTime)
 
 object HatenaRssItem {
@@ -22,10 +22,10 @@ object HatenaRssItem {
     val description = (item \ "description").text
     val datetime: ZonedDateTime = HatenaRssItemSerializer.parseToZonedDateTime((item \ "date").text)
     val subjects = (item \\ "subject").toList.map(_.text)
-    val imageurl = (item \ "imageurl").text
-    val bookmarkcount = (item \ "bookmarkcount").text.toInt
+    val imageUrl = (item \ "imageurl").text
+    val bookmarkCount = (item \ "bookmarkcount").text.toInt
 
-    HatenaRssItem(title, description, link, imageurl, bookmarkcount, datetime)
+    HatenaRssItem(title, description, link, imageUrl, bookmarkCount, datetime)
   }
 
   implicit val formats = DefaultFormats + new HatenaRssItemSerializer()

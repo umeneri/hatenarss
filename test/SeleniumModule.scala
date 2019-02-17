@@ -6,7 +6,7 @@ import software.reinvent.headless.chrome.provider.HeadlessChromeProvider
 
 class SeleniumModule extends AbstractModule {
   override def configure(): Unit = {
-     bind(classOf[Config]).toProvider(classOf[ConfigProvider])
+    bind(classOf[Config]).toProvider(classOf[ConfigProvider])
     bind(classOf[ChromeDriver]).toProvider(classOf[HeadlessChromeProvider])
   }
 }

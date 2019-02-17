@@ -15,7 +15,7 @@ class HatenaRssItemSpec extends WordSpec with Matchers {
       val xml = XML.load(url)
       val rssItem = HatenaRssItem.fromXml(xml)
       rssItem.title shouldBe "プログラミング言語人気TOP10の簡易解説"
-      rssItem.bookmarkcount shouldBe 4061
+      rssItem.bookmarkCount shouldBe 4061
     }
 
     "created from json object" in {

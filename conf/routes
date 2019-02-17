@@ -10,7 +10,7 @@ GET     /hello                      controllers.HomeController.hello
 GET     /count                      controllers.CountController.count
 # An example controler showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
-GET     /hotentry            controllers.HatenaController.hotentry(keyword: String ?= "hotentry")
+GET     /hotentry            controllers.HatenaController.hotentry(category: String ?= "hotentry")
 GET     /ranking            controllers.HatenaController.ranking(period: String ?= "weekly")
 
 # Map static resources from the /public folder to the /assets URL path

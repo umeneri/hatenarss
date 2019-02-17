@@ -25,8 +25,8 @@ class HatenaRssItemSerializer extends CustomSerializer[HatenaRssItem](format => 
   case rssItem: HatenaRssItem => ("title" -> rssItem.title) ~
     ("description" -> rssItem.description) ~
     ("link" -> rssItem.link) ~
-    ("imageurl" -> rssItem.imageurl) ~
-    ("bookmarkcount" -> rssItem.bookmarkcount) ~
+    ("imageurl" -> rssItem.imageUrl) ~
+    ("bookmarkcount" -> rssItem.bookmarkCount) ~
     ("datetime" -> HatenaRssItemSerializer.format(rssItem.datetime))
 }
 ))

@@ -22,9 +22,6 @@ class SeleniumSpec extends FlatSpec with Matchers with HeadlessChrome {
 
     capture to "MyScreenShot.png"
 
-    val element: Option[Element] = find(query = ClassNameQuery("title"))
-    element.get.text shouldBe "Hotentry"
-
     val cardHeaderTitles = findAll(query = ClassNameQuery("media-content")).toList
     cardHeaderTitles.size should be > 0
 
