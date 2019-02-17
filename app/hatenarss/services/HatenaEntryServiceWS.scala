@@ -11,22 +11,19 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
-  def getRankingItems(period: String): Future[Seq[HatenaRssItem]] = {
-    val laterReadTagParam = "q=%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80"
-    val otherParams = "safe=on&sort=popular&mode=rss"
-    val baseUrl = s"http://b.hatena.ne.jp/search/tag?$laterReadTagParam&$otherParams"
-    val url = createRankingUrl(period, baseUrl)
+  def getRankingItems(period: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
+    val url = getRankingUrl(period, page)
+
+    println(url)
 
     getHatenaRssItems(url)
   }
 
-  def getHotEntryItems(category: String): Future[Seq[HatenaRssItem]] = {
-    val url = category match {
-      case "hotentry" => s"http://b.hatena.ne.jp/hotentry.rss"
-      case _ => s"http://b.hatena.ne.jp/hotentry/$category.rss"
+  def getHotEntryItems(category: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
+    page match {
+      case 1 => getHatenaRssItems(getHotEntryUrl(category))
+      case _ => Future.successful(Seq.empty)
     }
-
-    getHatenaRssItems(url)
   }
 
   private def getHatenaRssItems(url: String): Future[Seq[HatenaRssItem]] = {
@@ -35,12 +32,15 @@ class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
     itemsFuture.map { items =>
       items.map { item =>
         HatenaRssItem.fromXml(item)
-      }
+      }.sortWith((item1, item2) => item1.bookmarkCount > item2.bookmarkCount)
     }
   }
 
+  private def getRankingUrl(period: String, page: Int): String = {
+    val laterReadTagParam = "q=%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80"
+    val otherParams = s"safe=on&sort=popular&mode=rss&page=$page"
+    val baseUrl = s"http://b.hatena.ne.jp/search/tag?$laterReadTagParam&$otherParams"
 
-  private def createRankingUrl(period: String, baseUrl: String) = {
     period match {
       case "all" => baseUrl
       case p =>
@@ -51,6 +51,14 @@ class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
         s"$baseUrl&$dateParams"
     }
   }
+
+  private def getHotEntryUrl(category: String): String = {
+    category match {
+      case "hotentry" => s"http://b.hatena.ne.jp/hotentry.rss"
+      case _ => s"http://b.hatena.ne.jp/hotentry/$category.rss"
+    }
+  }
+
 
   private[services] def periodToDates(period: String): (ZonedDateTime, ZonedDateTime) = {
     val today = ZonedDateTime.now

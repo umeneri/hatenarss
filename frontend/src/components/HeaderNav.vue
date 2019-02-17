@@ -12,9 +12,9 @@
 
       <div id="navbarBasicExample" class="navbar-menu" :class="{'is-active': isMenuActive}">
         <div class="navbar-end">
-          <router-link to="/" class="navbar-item">Top</router-link>
-          <router-link to="/about" class="navbar-item">About</router-link>
-          <router-link to="/register" class="navbar-item">Register</router-link>
+          <RouterLink to="/ranking/daily" class="navbar-item">Ranking</RouterLink>
+          <RouterLink to="/hotentry" class="navbar-item">HotEntry</RouterLink>
+          <RouterLink to="/about" class="navbar-item">About</RouterLink>
         </div>
       </div>
     </nav>

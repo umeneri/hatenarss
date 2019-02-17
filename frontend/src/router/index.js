@@ -12,11 +12,12 @@ const childPathes = Object.keys(RANKING_TYPE).map((key) => {
   const period = RANKING_TYPE[key].path
 
   return {
+    name: `ranking-${period}`,
     path: period,
     component: EntryContainer,
     props: {
       keyword: period,
-      getUrl: (period) => `/api/ranking?period=${period}`
+      getUrl: (keyword, page) => `/api/ranking?period=${keyword}&page=${page}`
     }
   }
 })
@@ -25,11 +26,12 @@ const hotChildPathes = Object.keys(HOT_ENTRY_TYPE).map((key) => {
   const category = HOT_ENTRY_TYPE[key].path
 
   return {
+    name: `hotentry-${category}`,
     path: category,
     component: EntryContainer,
     props: {
       keyword: category,
-      getUrl: (category) => `/api/hotentry?category=${category}`
+      getUrl: (keyword, page) => `/api/hotentry?category=${keyword}&page=${page}`
     }
   }
 })
@@ -37,11 +39,13 @@ const hotChildPathes = Object.keys(HOT_ENTRY_TYPE).map((key) => {
 export default new Router({
   routes: [
     {
+      name: 'root',
       path: '/',
       redirect: '/ranking/daily',
       component: EntryContainer
     },
     {
+      name: 'ranking',
       path: '/ranking',
       component: TabContainer,
       props: {
@@ -50,6 +54,7 @@ export default new Router({
       children: childPathes
     },
     {
+      name: 'hotentry',
       path: '/hotentry',
       component: TabContainer,
       props: {
@@ -58,6 +63,7 @@ export default new Router({
       children: hotChildPathes
     },
     {
+      name: 'about',
       path: '/about',
       component: About
     }

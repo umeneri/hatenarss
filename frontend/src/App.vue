@@ -3,7 +3,7 @@
     <div class="main-content columns is-fullheight">
       <SideMenuContainer/>
       <div class="column is-10">
-        <router-view/>
+        <RouterView/>
       </div>
     </div>
   </div>
