@@ -18,9 +18,11 @@ class HatenaController @Inject()(cc: ControllerComponents,
                                 (implicit exec: ExecutionContext)
   extends AbstractController(cc) {
 
+  val expiration: FiniteDuration = 1.hour
+
   //  [はてなブックマークフィード仕様 - Hatena Developer Center](http://developer.hatena.ne.jp/ja/documents/bookmark/misc/feed)
   def hotentry(category: String): EssentialAction =
-    cached({ _: RequestHeader => s"hotentry-$category" }, 5.minutes) {
+    cached({ _: RequestHeader => s"hotentry-$category" }, expiration) {
       Action.async {
         val futureItems = hatenaRssService.getHotEntryItems(category)
         futureItems.map { items => Ok(jsonSerializer.toJson(items)) }
@@ -28,7 +30,7 @@ class HatenaController @Inject()(cc: ControllerComponents,
     }
 
   def ranking(period: String): EssentialAction =
-    cached({ _: RequestHeader => s"ranking-$period" }, 5.minutes) {
+    cached({ _: RequestHeader => s"ranking-$period" }, expiration) {
       Action.async {
         val futureItems = hatenaRssService.getRankingItems(period)
 
