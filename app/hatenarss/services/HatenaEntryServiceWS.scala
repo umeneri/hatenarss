@@ -11,11 +11,10 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
-  def getRankingItems(period: String): Future[Seq[HatenaRssItem]] = {
-    val laterReadTagParam = "q=%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80"
-    val otherParams = "safe=on&sort=popular&mode=rss"
-    val baseUrl = s"http://b.hatena.ne.jp/search/tag?$laterReadTagParam&$otherParams"
-    val url = createRankingUrl(period, baseUrl)
+  def getRankingItems(period: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
+    val url = createRankingUrl(period, page)
+
+    println(url)
 
     getHatenaRssItems(url)
   }
@@ -35,12 +34,15 @@ class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
     itemsFuture.map { items =>
       items.map { item =>
         HatenaRssItem.fromXml(item)
-      }
+      }.sortWith((item1, item2) => item1.bookmarkCount > item2.bookmarkCount)
     }
   }
 
+  private def createRankingUrl(period: String, page: Int): String = {
+    val laterReadTagParam = "q=%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80"
+    val otherParams = s"safe=on&sort=popular&mode=rss&page=$page"
+    val baseUrl = s"http://b.hatena.ne.jp/search/tag?$laterReadTagParam&$otherParams"
 
-  private def createRankingUrl(period: String, baseUrl: String) = {
     period match {
       case "all" => baseUrl
       case p =>

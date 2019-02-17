@@ -16,20 +16,20 @@ const childPathes = Object.keys(RANKING_TYPE).map((key) => {
     component: EntryContainer,
     props: {
       keyword: period,
-      getUrl: (period) => `/api/ranking?period=${period}`
+      getUrl: (keyword, page) => `/api/ranking?period=${keyword}&page=${page}`
     }
   }
 })
 
 const hotChildPathes = Object.keys(HOT_ENTRY_TYPE).map((key) => {
-  const category = HOT_ENTRY_TYPE[key].path
+  const period = HOT_ENTRY_TYPE[key].path
 
   return {
-    path: category,
+    path: period,
     component: EntryContainer,
     props: {
-      keyword: category,
-      getUrl: (category) => `/api/hotentry?category=${category}`
+      keyword: period,
+      getUrl: (keyword) => `/api/hotentry?category=${keyword}`
     }
   }
 })
