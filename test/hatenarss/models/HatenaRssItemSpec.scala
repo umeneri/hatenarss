@@ -14,8 +14,17 @@ class HatenaRssItemSpec extends WordSpec with Matchers {
       val url = this.getClass.getClassLoader.getResource("item.xml")
       val xml = XML.load(url)
       val rssItem = HatenaRssItem.fromXml(xml)
-      rssItem.title shouldBe "プログラミング言語人気TOP10の簡易解説"
-      rssItem.bookmarkCount shouldBe 4061
+      rssItem.title shouldBe "Angularの学習コストは本当に高いのか？ - lacolaco"
+      rssItem.bookmarkCount shouldBe 23
+    }
+
+    "get image url" in {
+      val result = "https://cdn-ak-scissors.b.st-hatena.com/image/square/98756aa90bd66bcc61be3cfd9f74ef83e0c381c4/height=90;version=1;width=120/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fl%2Flacolaco%2F20190219%2F20190219000741.png"
+      val url = this.getClass.getClassLoader.getResource("item.xml")
+      val xml = XML.load(url)
+      val imageUrl = HatenaRssItem.getImageUrl(xml)
+
+      imageUrl shouldBe Some(result)
     }
 
     "created from json object" in {

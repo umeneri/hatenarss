@@ -1,35 +1,20 @@
-<item rdf:about="http://www.mwsoft.jp/column/program_top10.html" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:syn="http://purl.org/rss/1.0/modules/syndication/" xmlns:hatena="http://www.hatena.ne.jp/info/xmlns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:admin="http://webns.net/mvcb/" xmlns="http://purl.org/rss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-<title>プログラミング言語人気TOP10の簡易解説</title>
-<link>http://www.mwsoft.jp/column/program_top10.html</link>
-<description>0-1. 前書き この世にはたくさんのプログラミング言語が存在します。Wikiepdiaのプログラミング言語一覧を見ると、実に200個以上というわけの分からない数の言語が並んでいたりします。 【参考URL】プログラミング言語一覧 - Wikipedia http://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AD%E3%82%B0%... 200の中にはほとん...</description>
-<dc:date>2011-01-24T15:00:00Z</dc:date>
-<dc:subject>暮らし</dc:subject>
-<dc:subject>プログラミング</dc:subject>
-<dc:subject>programming</dc:subject>
-<dc:subject>まとめ</dc:subject>
-<dc:subject>プログラミング言語</dc:subject>
-<dc:subject>ネタ</dc:subject>
+<item rdf:about="https://lacolaco.hatenablog.com/entry/2019/02/19/001547" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:syn="http://purl.org/rss/1.0/modules/syndication/" xmlns:hatena="http://www.hatena.ne.jp/info/xmlns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:admin="http://webns.net/mvcb/" xmlns="http://purl.org/rss/1.0/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<title>Angularの学習コストは本当に高いのか？ - lacolaco</title>
+<link>https://lacolaco.hatenablog.com/entry/2019/02/19/001547</link>
+<description>有言実行しなきゃね... ちょっと来月の頭くらいまでに、「本当にAngularは学習コストが高いのか？」っていう内容のブログを書くので、書いてなかったら怒ってください— Suguru Inatomi / lacolaco (@laco2net) 2019年1月24日 この記事では、「学習コストが高い」と評されがちなAngularについて、本当にその学習コストは...</description>
+<dc:date>2019-02-18T15:20:22Z</dc:date>
+<dc:subject>テクノロジー</dc:subject>
 <dc:subject>あとで読む</dc:subject>
-<dc:subject>読み物</dc:subject>
-<dc:subject>言語</dc:subject>
-<dc:subject>javascript</dc:subject>
-<dc:subject>参考</dc:subject>
+<dc:subject>Angular</dc:subject>
 <taxo:topics>
   <rdf:Bag>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=programming"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%81%BE%E3%81%A8%E3%82%81"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%83%8D%E3%82%BF"/>
     <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E3%81%82%E3%81%A8%E3%81%A7%E8%AA%AD%E3%82%80"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E8%AA%AD%E3%81%BF%E7%89%A9"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E8%A8%80%E8%AA%9E"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=javascript"/>
-    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=%E5%8F%82%E8%80%83"/>
+    <rdf:li resource="http://b.hatena.ne.jp/search/tag?q=Angular"/>
   </rdf:Bag>
 </taxo:topics>
-<hatena:bookmarkcount>4061</hatena:bookmarkcount>
 <content:encoded>
-&lt;blockquote cite=&quot;http://www.mwsoft.jp/column/program_top10.html&quot; title=&quot;プログラミング言語人気TOP10の簡易解説&quot;&gt;&lt;cite&gt;&lt;img src=&quot;https://cdn-ak2.favicon.st-hatena.com/?url=http%3A%2F%2Fwww.mwsoft.jp%2F&quot; alt=&quot;&quot; /&gt; &lt;a href=&quot;http://www.mwsoft.jp/column/program_top10.html&quot;&gt;プログラミング言語人気TOP10の簡易解説&lt;/a&gt;&lt;/cite&gt;&lt;p&gt;&lt;a href=&quot;http://www.mwsoft.jp/column/program_top10.html&quot;&gt;&lt;img src=&quot;&quot; alt=&quot;プログラミング言語人気TOP10の簡易解説&quot; title=&quot;プログラミング言語人気TOP10の簡易解説&quot; class=&quot;entry-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;0-1. 前書き この世にはたくさんのプログラミング言語が存在します。Wikiepdiaのプログラミング言語一覧を見ると、実に200個以上というわけの分からない数の言語が並んでいたりします。 【参考URL】プログラミング言語一覧 - Wikipedia http://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AD%E3%82%B0%... 200の中にはほとん...&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://b.hatena.ne.jp/entry/www.mwsoft.jp/column/program_top10.html&quot;&gt;&lt;img src=&quot;http://b.hatena.ne.jp/entry/image/http://www.mwsoft.jp/column/program_top10.html&quot; alt=&quot;はてなブックマーク - プログラミング言語人気TOP10の簡易解説&quot; title=&quot;はてなブックマーク - プログラミング言語人気TOP10の簡易解説&quot; border=&quot;0&quot; style=&quot;border: none&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://b.hatena.ne.jp/entry/www.mwsoft.jp/column/program_top10.html&quot;&gt;&lt;img src=&quot;http://b.hatena.ne.jp/images/append.gif&quot; border=&quot;0&quot; alt=&quot;はてなブックマークに追加&quot; title=&quot;はてなブックマークに追加&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;</content:encoded>
+&lt;blockquote cite=&quot;https://lacolaco.hatenablog.com/entry/2019/02/19/001547&quot; title=&quot;Angularの学習コストは本当に高いのか？ - lacolaco&quot;&gt;&lt;cite&gt;&lt;img src=&quot;https://cdn-ak2.favicon.st-hatena.com/?url=https%3A%2F%2Flacolaco.hatenablog.com%2F&quot; alt=&quot;&quot; /&gt; &lt;a href=&quot;https://lacolaco.hatenablog.com/entry/2019/02/19/001547&quot;&gt;Angularの学習コストは本当に高いのか？ - lacolaco&lt;/a&gt;&lt;/cite&gt;&lt;p&gt;&lt;a href=&quot;https://lacolaco.hatenablog.com/entry/2019/02/19/001547&quot;&gt;&lt;img src=&quot;https://cdn-ak-scissors.b.st-hatena.com/image/square/98756aa90bd66bcc61be3cfd9f74ef83e0c381c4/height=90;version=1;width=120/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fl%2Flacolaco%2F20190219%2F20190219000741.png&quot; alt=&quot;Angularの学習コストは本当に高いのか？ - lacolaco&quot; title=&quot;Angularの学習コストは本当に高いのか？ - lacolaco&quot; class=&quot;entry-image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;有言実行しなきゃね... ちょっと来月の頭くらいまでに、「本当にAngularは学習コストが高いのか？」っていう内容のブログを書くので、書いてなかったら怒ってください— Suguru Inatomi / lacolaco (@laco2net) 2019年1月24日 この記事では、「学習コストが高い」と評されがちなAngularについて、本当にその学習コストは...&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://b.hatena.ne.jp/entry/s/lacolaco.hatenablog.com/entry/2019/02/19/001547&quot;&gt;&lt;img src=&quot;http://b.hatena.ne.jp/entry/image/https://lacolaco.hatenablog.com/entry/2019/02/19/001547&quot; alt=&quot;はてなブックマーク - Angularの学習コストは本当に高いのか？ - lacolaco&quot; title=&quot;はてなブックマーク - Angularの学習コストは本当に高いのか？ - lacolaco&quot; border=&quot;0&quot; style=&quot;border: none&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;http://b.hatena.ne.jp/entry/s/lacolaco.hatenablog.com/entry/2019/02/19/001547&quot;&gt;&lt;img src=&quot;http://b.hatena.ne.jp/images/append.gif&quot; border=&quot;0&quot; alt=&quot;はてなブックマークに追加&quot; title=&quot;はてなブックマークに追加&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;</content:encoded>
+<hatena:imageurl>https://cdn-ak.f.st-hatena.com/images/fotolife/l/lacolaco/20190219/20190219000741.png</hatena:imageurl>
+<hatena:bookmarkcount>23</hatena:bookmarkcount>
 </item>
 
