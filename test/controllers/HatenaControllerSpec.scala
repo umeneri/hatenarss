@@ -1,17 +1,22 @@
 package controllers
 
-import hatenarss.services.{HatenaEntryService, HatenaEntryServiceWS}
+import hatenarss.services.{CachedService, HatenaEntryService, HatenaEntryServiceWS}
+import javax.inject.Inject
 import org.scalatestplus.play.PlaySpec
 import play.api.Application
 import play.api.inject.bind
 import play.api.inject.guice.GuiceApplicationBuilder
+import play.api.mvc.EssentialAction
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+
+import scala.concurrent.duration.{FiniteDuration, _}
 
 class HatenaControllerSpec extends PlaySpec {
 
   lazy val application: Application = new GuiceApplicationBuilder()
-    .bindings(bind[HatenaEntryService].to[HatenaEntryServiceWS])
+    .overrides(bind[HatenaEntryService].to[HatenaEntryServiceWS])
+    .overrides(bind[CachedService].to[MockCachedService])
     .build()
 
   "HatenaControllerSpec" should {
@@ -39,4 +44,10 @@ class HatenaControllerSpec extends PlaySpec {
       contentAsString(result1) must not be contentAsString(result2)
     }
   }
+}
+
+class MockCachedService @Inject() extends CachedService {
+  override val expiration: FiniteDuration = 1.second
+
+  override def cachedAction(key: String)(action: EssentialAction): EssentialAction = action
 }

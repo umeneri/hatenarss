@@ -2,7 +2,7 @@ import com.google.inject.AbstractModule
 import java.time.Clock
 
 import hatenarss.helpers.{Json4sSerializer, JsonSerializer}
-import hatenarss.services.{HatenaEntryService, HatenaEntryServiceWS}
+import hatenarss.services.{CachedService, HatenaEntryService, HatenaEntryServiceWS, PlayCachedService}
 import services.{ApplicationTimer, AtomicCounter, Counter}
 
 /**
@@ -27,6 +27,7 @@ class Module extends AbstractModule {
     bind(classOf[Counter]).to(classOf[AtomicCounter])
     bind(classOf[HatenaEntryService]).to(classOf[HatenaEntryServiceWS])
     bind(classOf[JsonSerializer]).to(classOf[Json4sSerializer])
+    bind(classOf[CachedService]).to(classOf[PlayCachedService])
   }
 
 }
