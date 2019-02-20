@@ -1,14 +1,15 @@
-name := """play-scala-starter-example"""
-
+name := """hatenaRss"""
 version := "1.0-SNAPSHOT"
+scalaVersion := "2.12.8"
+crossScalaVersions := Seq("2.11.12", "2.12.7")
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root = (project in file("."))
+  .enablePlugins(PlayScala, JavaAppPackaging, AshScriptPlugin, DockerPlugin)
+    .settings(
+      dockerBaseImage := "java:8-jdk-alpine"
+    )
 
 resolvers += Resolver.sonatypeRepo("snapshots")
-
-scalaVersion := "2.12.8"
-
-crossScalaVersions := Seq("2.11.12", "2.12.7")
 
 val json4sNative = "org.json4s" %% "json4s-native" % "3.6.3"
 val json4sXml = "org.json4s" %% "json4s-xml" % "3.6.3"
