@@ -11,7 +11,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
-  def getRankingItems(period: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
+  override def getRankingItems(period: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
     val url = getRankingUrl(period, page)
 
     println(url)
@@ -19,7 +19,7 @@ class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
     getHatenaRssItems(url)
   }
 
-  def getHotEntryItems(category: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
+  override def getHotEntryItems(category: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
     page match {
       case 1 => getHatenaRssItems(getHotEntryUrl(category))
       case _ => Future.successful(Seq.empty)

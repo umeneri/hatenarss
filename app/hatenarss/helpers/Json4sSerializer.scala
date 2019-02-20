@@ -5,7 +5,7 @@ import org.json4s.native.Serialization.write
 class Json4sSerializer extends JsonSerializer {
   implicit val formats = DefaultFormats + new HatenaRssItemSerializer()
 
-  def toJson[T](t: T): String = {
+  override def toJson[T](t: T): String = {
     write(t)
   }
 }
