@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style lang="sass">
-$footer-background-color: hsl(0, 0%, 21%)
 $menu-item-active-background-color: hsl(171, 100%, 41%)
 $menu-item-color: hsl(0, 0%, 100%)
 

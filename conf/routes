@@ -3,15 +3,13 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
-GET     /hello                      controllers.HomeController.hello
+GET     /                          controllers.HomeController.index
 
 # An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controler showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
-GET     /hotentry           controllers.HatenaController.hotEntry(category: String ?= "hotentry", page: Int ?= 1)
-GET     /ranking            controllers.HatenaController.ranking(period: String ?= "weekly", page: Int ?= 1)
+GET     /api/hotentry           controllers.HatenaController.hotEntry(category: String ?= "hotentry", page: Int ?= 1)
+GET     /api/ranking            controllers.HatenaController.ranking(period: String ?= "weekly", page: Int ?= 1)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(file)
+GET     /assets/*file               controllers.Assets.versioned(path="/public/assets", file: Asset)
+
+GET     /*path                     controllers.HomeController.indexAll(path)

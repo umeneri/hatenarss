@@ -9,6 +9,7 @@ target
 /.settings
 /RUNNING_PID
 tmp
+/public
 
 # Created by https://www.gitignore.io/api/osx,node,linux,windows
 

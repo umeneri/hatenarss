@@ -43,7 +43,7 @@ export default {
   props: [ 'items' ],
   data () {
     return {
-      defaultImageUrl: 'http://placehold.jp/128x128.png?text=hatenaRss'
+      defaultImageUrl: '/assets/hatenaRss-128x128.png'
     }
   },
   methods: {

@@ -22,7 +22,7 @@ object HatenaRssItem {
     val description = (item \ "description").text
     val datetime: ZonedDateTime = HatenaRssItemSerializer.parseToZonedDateTime((item \ "date").text)
     val subjects = (item \\ "subject").toList.map(_.text)
-    val imageUrl = (item \ "imageurl").text
+    val imageUrl = getImageUrl(item).getOrElse("")
     val bookmarkCount = (item \ "bookmarkcount").text.toInt
 
     HatenaRssItem(title, description, link, imageUrl, bookmarkCount, datetime)
@@ -38,4 +38,11 @@ object HatenaRssItem {
   def renderJson(items: Seq[HatenaRssItem]): String = {
     write(items)
   }
+
+  private[models] def getImageUrl(xml: Node): Option[String] = {
+    val imageUrlMatcher = "(https://cdn-ak-scissors.+?)\"".r
+    val content = (xml \ "encoded").text
+    imageUrlMatcher.findFirstMatchIn(content).map(_.group(1))
+  }
+
 }
