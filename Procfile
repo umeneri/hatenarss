@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/hatenarss
+web: JAVA_OPTS="-Dhttp.port=${PORT}" target/universal/stage/bin/hatenarss

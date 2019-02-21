@@ -25,3 +25,4 @@ libraryDependencies += "org.seleniumhq.selenium" % "selenium-java" % "2.35.0" % 
 libraryDependencies += "software.reinvent" % "headless-chrome" % "0.3.1"
 libraryDependencies += cacheApi
 
+herokuAppName in Compile := "secret-garden-51863"
