@@ -1,57 +1,52 @@
-# play-scala-starter-example
+# Get Started
+1. run the server
+    ```
+    $ git clone git@github.com:umeneri/hatenarss.git
+    $ cd hatenarss
+    $ sbt run
+    ```
 
-[<img src="https://img.shields.io/travis/playframework/play-scala-starter-example.svg"/>](https://travis-ci.org/playframework/play-scala-starter-example)
+2. open http://localhost:9000
 
-This is a starter application that shows how Play works.  Please see the documentation at <https://www.playframework.com/documentation/latest/Home> for more details.
-
-## Running
-
-Run this using [sbt](http://www.scala-sbt.org/).  If you downloaded this project from <http://www.playframework.com/download> then you'll find a prepackaged version of sbt in the project directory:
-
-```bash
-sbt run
+# Test
+```
+$ sbt test
 ```
 
-And then go to <http://localhost:9000> to see the running web application.
+# Deployment
+```
+$ heroku login
+$ heroku create # please record your app name
+$ heroku container:login
+$ sbt playGenerateSecret # please record your secret
+$ heroku config:add PLAY_APPLICATION_SECRET="{your generated secret}"
+$ sbt docker:publishLocal
+$ docker tag hatenarss:1.0-SNAPSHOT registry.heroku.com/{your heroku app name}/web
+$ cd target/docker/stage/
+$ heroku container:push web
+$ heroku container:release web
+```
 
-There are several demonstration files available in this template.
+# Local Development Tips
 
-## Controllers
+## debug frontend
+```bash
+$ cd frontend
+$ yarn serve
+``` 
 
-- `HomeController.scala`:
+## show Docker file
+```bash
+$ sbt "show dockerCommands"
+```
 
-  Shows how to handle simple HTTP requests.
+## show heroku logs
 
-- `AsyncController.scala`:
+```bash
+$ heroku logs --tail
+```
 
-  Shows how to do asynchronous programming when handling a request.
-
-- `CountController.scala`:
-
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
-
-## Components
-
-- `Module.scala`:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- `Counter.scala`:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- `ApplicationTimer.scala`:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-## Filters
-
-- `Filters.scala`:
-
-  Creates the list of HTTP filters used by your application.
-
-- `ExampleFilter.scala`:
-
-  A simple filter that adds a header to every response.
+## debug local docker
+```bash
+$ docker run -p 9000:9000 -it --rm -e "PORT=9000" -e "PLAY_APPLICATION_SECRET={your secret}" hatenarss:1.0-SNAPSHOT
+```
