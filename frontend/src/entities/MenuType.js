@@ -2,7 +2,7 @@ export const MENU_TYPE = {
   RANKING: {
     name: 'Ranking',
     path: '/ranking/daily',
-    icon: 'home',
+    icon: 'line-chart',
     isActive: true,
   },
   HOT_ENTRY: {

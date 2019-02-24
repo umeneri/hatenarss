@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="from-tablet-section">
     <div class="tabs is-centered is-fullwidth">
       <ul>
         <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }" :key="tab.name" @click="selectTab(tab)">
@@ -39,3 +39,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+@import '~bulma'
+
+.from-tablet-section
+  +tablet
+    padding: 3rem 1.5rem
+</style>

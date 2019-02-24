@@ -1,5 +1,5 @@
 <template>
-  <footer class="section columns has-background-dark">
+  <footer class="section has-background-dark">
     <div class="container">
       <div class="content has-text-centered">
         <p class="footer-copyright has-text-light">
