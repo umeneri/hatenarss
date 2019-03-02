@@ -17,10 +17,8 @@ class SeleniumSpec extends FlatSpec with Matchers with HeadlessChrome {
   "The blog app home page" should "have the correct title" in {
     go to "http://localhost:8080/"
 
-    implicitlyWait(Span(1, Seconds))
-    pageTitle should be ("frontend")
-
-    capture to "MyScreenShot.png"
+    implicitlyWait(Span(5, Seconds))
+    pageTitle should be ("BukumaRanking")
 
     val cardHeaderTitles = findAll(query = ClassNameQuery("media-content")).toList
     cardHeaderTitles.size should be > 0

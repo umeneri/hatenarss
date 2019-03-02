@@ -39,9 +39,6 @@
             </figure>
           </a>
         </div>
-        <div>
-          <span></span>
-        </div>
       </div>
 
     </article>
@@ -51,22 +48,15 @@
 
 <script>
 import {} from '@/../node_modules/twitter-relative-time-js/twitter.relative.time.min.js'
-import Article from '@/entities/Article'
 
 export default {
   props: [ 'articles' ],
   data () {
     return {
-      defaultImageUrl: '/assets/hatenaRss-128x128.png'
+      defaultImageUrl: '/assets/hatenaRss-128x128.png',
     }
   },
-  created () {
-    this.articles = this.getArticles(this.items)
-  },
   methods: {
-    getArticles (items) {
-      return items.map((item) => new Article(item))
-    },
     getHatenaButton (url) {
       const target = this.removeLinkProtocol(url)
       return `http://b.hatena.ne.jp/entry/s/${target}`

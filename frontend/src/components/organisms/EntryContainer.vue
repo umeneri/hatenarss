@@ -25,6 +25,7 @@ import axios from 'axios'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import ColumnView from '@/components/molecules/entries/ColumnView.vue'
 import LoadingButton from '@/components/atoms/LoadingButton.vue'
+import Article from '@/entities/Article'
 // import hatenaHotentryJson from '@/data/hatena-hotentry'
 
 export default {
@@ -61,10 +62,13 @@ export default {
         return
       }
 
-      this.itemData = this.itemData.concat(rssData)
+      this.itemData = this.itemData.concat(this.getArticles(rssData))
 
       this.isEntriesVisible = true
       this.page += 1
+    },
+    getArticles (items) {
+      return items.map((item) => new Article(item))
     },
     async loadNextPage () {
       await this.setRss()
