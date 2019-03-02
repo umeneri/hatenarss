@@ -3,7 +3,7 @@
     <ClipLoader :loading="!isEntriesVisible"></ClipLoader>
     <transition>
       <div v-if="isEntriesVisible">
-        <ColumnView :articles="articles"></ColumnView>
+        <ColumnView :items="items"></ColumnView>
         <nav class="nav-bar has-text-centered">
           <LoadingButton
             v-if="!isEndPage"
@@ -78,7 +78,7 @@ export default {
     }
   },
   computed: {
-    articles () {
+    items () {
       return this.itemData
     }
   }
