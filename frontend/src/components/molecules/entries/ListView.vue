@@ -1,28 +1,28 @@
 <template>
   <table class="table is-fullwidth is-striped">
-    <tr class="" v-for="item in items" :key="item.link">
+    <tr class="" v-for="article in articles" :key="article.link">
 
       <td class="button is-primary is-rounded">
-        <p>{{ item.bookmarkcount }}</p>
+        <p>{{ article.bookmarkcount }}</p>
       </td>
 
       <td class="">
         <figure class="image is-4by3">
-          <img :src="item.imageurl" alt="image">
+          <img :src="article.imageurl" alt="image">
         </figure>
       </td>
 
       <td class="">
-        <p class="">{{ item.title }}</p>
+        <p class="">{{ article.title }}</p>
       </td>
 
-      <time :datetime="item.datetime">{{ item.datetime }}</time>
+      <time :datetime="article.datetime">{{ article.datetime }}</time>
     </tr>
   </table>
 </template>
 
 <script>
 export default {
-  props: [ 'items' ]
+  props: [ 'articles' ]
 }
 </script>

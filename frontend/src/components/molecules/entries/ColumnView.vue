@@ -54,11 +54,10 @@ import {} from '@/../node_modules/twitter-relative-time-js/twitter.relative.time
 import Article from '@/entities/Article'
 
 export default {
-  props: [ 'items' ],
+  props: [ 'articles' ],
   data () {
     return {
-      defaultImageUrl: '/assets/hatenaRss-128x128.png',
-      articles: []
+      defaultImageUrl: '/assets/hatenaRss-128x128.png'
     }
   },
   created () {
