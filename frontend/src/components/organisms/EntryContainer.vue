@@ -62,6 +62,7 @@ export default {
       }
 
       this.itemData = this.itemData.concat(rssData)
+
       this.isEntriesVisible = true
       this.page += 1
     },
@@ -90,5 +91,4 @@ export default {
 
 .v-enter, .v-leave-to
   opacity: 0
-
 </style>

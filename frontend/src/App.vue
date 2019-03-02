@@ -1,38 +1,34 @@
 <template>
+  <!-- columns and show hidden style depending on device is written here -->
   <div id="app">
-    <HeaderNavContainer class="is-hidden-desktop"/>
-    <div class="columns">
-      <SideMenuContainer class="is-hidden-touch"/>
-      <main class="main-content is-fullheight">
-        <div class="container">
-          <RouterView :key="$route.fullPath"/>
-        </div>
+    <HeaderNavContainer class=""/>
+    <div class="side-margin-less columns">
+      <main class="column is-10 is-fullheight container">
+        <RouterView :key="$route.fullPath"/>
       </main>
     </div>
-    <FooterNav/>
+    <FooterNav class="side-margin-less columns"/>
   </div>
 </template>
 
 <script>
 import HeaderNavContainer from '@/components/organisms/HeaderNavContainer'
-import SideMenuContainer from '@/components/organisms/SideMenuContainer'
 import FooterNav from '@/components/organisms/FooterNav'
 
 export default {
   components: {
     HeaderNavContainer,
-    SideMenuContainer,
     FooterNav
   }
 }
 </script>
 
 <style lang="sass">
-$menu-item-active-background-color: hsl(171, 100%, 41%)
-$menu-item-color: hsl(0, 0%, 100%)
-
 @import '~bulma'
 $fa-font-path: '~font-awesome/fonts/'
 @import '~font-awesome/scss/font-awesome'
 
+.side-margin-less.columns
+  margin-right: 0
+  margin-left: 0
 </style>
