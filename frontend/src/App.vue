@@ -6,8 +6,8 @@
       <main class="column is-10 is-fullheight container">
         <RouterView :key="$route.fullPath"/>
       </main>
+      <FooterNav class="side-margin-less columns"/>
     </div>
-    <FooterNav class="side-margin-less columns"/>
   </div>
 </template>
 
@@ -32,3 +32,4 @@ $fa-font-path: '~font-awesome/fonts/'
   margin-right: 0
   margin-left: 0
 </style>
+
