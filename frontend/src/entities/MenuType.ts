@@ -1,4 +1,4 @@
-export const MENU_TYPE = {
+export const MENU_TYPE:{ [index:string] : {name: string, path: string, icon: string, isActive: Boolean} } = {
   RANKING: {
     name: 'Ranking',
     path: '/ranking/daily',

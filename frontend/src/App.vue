@@ -6,8 +6,8 @@
       <main class="column is-10 is-fullheight container">
         <RouterView :key="$route.fullPath"/>
       </main>
-      <FooterNav class="side-margin-less columns"/>
     </div>
+    <FooterNav class="side-margin-less columns"/>
   </div>
 </template>
 

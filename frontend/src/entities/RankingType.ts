@@ -1,4 +1,4 @@
-export const RANKING_TYPE = {
+export const RANKING_TYPE:{ [index:string] : {name: string, path: string} } = {
   DAILY: {
     name: '日',
     path: 'daily'
