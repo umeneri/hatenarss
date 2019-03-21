@@ -75,8 +75,6 @@ export default {
     },
     async getRss (keyword, page, getUrl) {
       const url = getUrl(keyword, page)
-      console.log(`get Rss url:  keyword: ${keyword}, page: ${page}, url: ${url}`);
-
       const result = await axios.get(url)
       return result.data
     }
