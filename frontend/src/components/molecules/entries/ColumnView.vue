@@ -74,6 +74,11 @@ export default {
     getFormatedDate (date) {
       return (new Date(date)).toTwitterRelativeTime('ja')
     }
+  },
+  computed: {
+    articles () {
+      return this.getArticles(this.items)
+    }
   }
 }
 </script>
