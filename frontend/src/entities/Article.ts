@@ -1,5 +1,20 @@
 export default class Article {
-  constructor (item) {
+  bookmarkcount: number
+  datetime: Date
+  description: string
+  imageurl: string
+  link: string
+  title: string
+  hasVisibleDescription: boolean
+
+  constructor (item: {
+    bookmarkcount: number
+    datetime: Date
+    description: string
+    imageurl: string
+    link: string
+    title: string
+  }) {
     this.bookmarkcount = item.bookmarkcount
     this.datetime = item.datetime
     this.description = item.description

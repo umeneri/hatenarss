@@ -1,4 +1,6 @@
-export const MENU_TYPE = {
+import MenuItem from '@/interfaces/MenuItem'
+
+export const MENU_TYPE:{ [index:string] : MenuItem } = {
   RANKING: {
     name: 'Ranking',
     path: '/ranking/daily',

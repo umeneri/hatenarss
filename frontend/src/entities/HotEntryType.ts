@@ -1,4 +1,4 @@
-export const HOT_ENTRY_TYPE = {
+export const HOT_ENTRY_TYPE:{ [index:string] : {name: string, path: string} } = {
   HOT_ENTRY: {
     name: '総合',
     path: 'hotentry'

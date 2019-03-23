@@ -32,3 +32,4 @@ $fa-font-path: '~font-awesome/fonts/'
   margin-right: 0
   margin-left: 0
 </style>
+

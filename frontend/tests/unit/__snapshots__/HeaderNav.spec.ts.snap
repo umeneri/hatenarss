@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderNav.vue toggle menu 1`] = `
+<header>
+  <nav role="navigation" aria-label="main navigation" class="navbar has-shadow">
+    <div class="navbar-brand">
+      <div class="navbar-item"><img src="/assets/logo.png"></div> <a role="button" aria-label="menu" aria-expanded="false" data-target="navbarManu" class="navbar-burger burger is-active"><span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span></a>
+    </div>
+    <div id="navbarManu" class="navbar-menu is-dark is-active">
+      <div class="navbar-start">
+        <routerlink-stub to="/ranking/daily" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-line-chart"></i></span> <span>Ranking</span></routerlink-stub>
+        <routerlink-stub to="/hotentry/hotentry" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-fire"></i></span> <span>HotEntry</span></routerlink-stub>
+        <routerlink-stub to="/about" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-info"></i></span> <span>About</span></routerlink-stub>
+      </div>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`HeaderNav.vue toggle menu when button is clicked 1`] = `
+<header>
+  <nav role="navigation" aria-label="main navigation" class="navbar has-shadow">
+    <div class="navbar-brand">
+      <div class="navbar-item"><img src="/assets/logo.png"></div> <a role="button" aria-label="menu" aria-expanded="false" data-target="navbarManu" class="navbar-burger burger is-active"><span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span></a>
+    </div>
+    <div id="navbarManu" class="navbar-menu is-dark is-active">
+      <div class="navbar-start">
+        <routerlink-stub to="/ranking/daily" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-line-chart"></i></span> <span>Ranking</span></routerlink-stub>
+        <routerlink-stub to="/hotentry/hotentry" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-fire"></i></span> <span>HotEntry</span></routerlink-stub>
+        <routerlink-stub to="/about" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-info"></i></span> <span>About</span></routerlink-stub>
+      </div>
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`HeaderNav.vue when toggle menu 1`] = `
+<header>
+  <nav role="navigation" aria-label="main navigation" class="navbar has-shadow">
+    <div class="navbar-brand">
+      <div class="navbar-item"><img src="/assets/logo.png"></div> <a role="button" aria-label="menu" aria-expanded="false" data-target="navbarManu" class="navbar-burger burger is-active"><span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span></a>
+    </div>
+    <div id="navbarManu" class="navbar-menu is-dark is-active">
+      <div class="navbar-start">
+        <routerlink-stub to="/ranking/daily" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-line-chart"></i></span> <span>Ranking</span></routerlink-stub>
+        <routerlink-stub to="/hotentry/hotentry" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-fire"></i></span> <span>HotEntry</span></routerlink-stub>
+        <routerlink-stub to="/about" tag="a" event="click" class="navbar-item"><span class="icon"><i class="fa fa-info"></i></span> <span>About</span></routerlink-stub>
+      </div>
+    </div>
+  </nav>
+</header>
+`;
