@@ -8,7 +8,7 @@ crossScalaVersions := Seq("2.11.12", "2.12.7")
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala, JavaAppPackaging, AshScriptPlugin, DockerPlugin)
   .settings(
-    dockerBaseImage := "java:8-jdk-alpine",
+    dockerBaseImage := "adoptopenjdk/openjdk11:alpine-slim",
 
     // it should create CMD command instead of ENTRYPOINT for heroku
     dockerCommands := dockerCommands.value.filter {
