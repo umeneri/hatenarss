@@ -10,7 +10,7 @@ lazy val root = (project in file("."))
   .settings(
     dockerBaseImage := "java:8-jdk-alpine",
 
-    // it should create CMD command instead of EnTRYPOINT for heroku
+    // it should create CMD command instead of ENTRYPOINT for heroku
     dockerCommands := dockerCommands.value.filter {
       case ExecCmd("CMD", _*) => false
       case _ => true
@@ -23,7 +23,6 @@ lazy val root = (project in file("."))
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 val json4sNative = "org.json4s" %% "json4s-native" % "3.6.3"
-val json4sXml = "org.json4s" %% "json4s-xml" % "3.6.3"
 
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
@@ -31,7 +30,6 @@ libraryDependencies += "com.h2database" % "h2" % "1.4.197"
 libraryDependencies += ws
 libraryDependencies += ehcache
 libraryDependencies += json4sNative
-libraryDependencies += json4sXml
 libraryDependencies += "org.seleniumhq.selenium" % "selenium-java" % "2.35.0" % "test"
 libraryDependencies += "software.reinvent" % "headless-chrome" % "0.3.1"
 libraryDependencies += cacheApi
