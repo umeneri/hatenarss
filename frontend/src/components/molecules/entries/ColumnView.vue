@@ -1,6 +1,5 @@
 <template>
   <div class="column is-12 box">
-    <div>{{ items[items.length - 1].link }} </div>
     <article class="media" v-for="article in articles" :key="article.link">
       <div class="media-content">
         <div class="content">
@@ -74,13 +73,8 @@ export default {
     },
     getFormatedDate (date) {
       return (new Date(date)).toTwitterRelativeTime('ja')
-    }
+    },
   },
-  computed: {
-    articles () {
-      return this.getArticles(this.items)
-    }
-  }
 }
 </script>
 

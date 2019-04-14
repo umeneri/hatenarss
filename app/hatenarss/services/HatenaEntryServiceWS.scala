@@ -12,16 +12,12 @@ import scala.concurrent.Future
 
 class HatenaEntryServiceWS @Inject()(ws: WSClient) extends HatenaEntryService {
   override def getRankingItems(period: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
-    val url = getRankingUrl(period, page)
-
-    println(url)
-
-    getHatenaRssItems(url)
+    getHatenaRssItems(url = getRankingUrl(period, page))
   }
 
   override def getHotEntryItems(category: String, page: Int = 1): Future[Seq[HatenaRssItem]] = {
     page match {
-      case 1 => getHatenaRssItems(getHotEntryUrl(category))
+      case 1 => getHatenaRssItems(url = getHotEntryUrl(category))
       case _ => Future.successful(Seq.empty)
     }
   }

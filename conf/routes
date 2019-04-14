@@ -1,15 +1,5 @@
-# Routes
-# This file defines all application routes (Higher priority routes first)
-# ~~~~
-
-# An example controller showing a sample home page
 GET     /                          controllers.HomeController.index
-
-# An example controller showing how to use dependency injection
 GET     /api/hotentry           controllers.HatenaController.hotEntry(category: String ?= "hotentry", page: Int ?= 1)
 GET     /api/ranking            controllers.HatenaController.ranking(period: String ?= "weekly", page: Int ?= 1)
-
-# Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public/assets", file: Asset)
-
 GET     /*path                     controllers.HomeController.indexAll(path)
